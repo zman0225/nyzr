@@ -64,7 +64,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="col1" id="8EP-zY-6kx">
                                                                 <font key="font" metaFont="system"/>
-                                                                <color key="textColor" red="0.69019607839999997" green="0.58823529409999997" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="textColor" red="0.77647058820000003" green="0.17200254027581713" blue="0.37569220937802944" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
@@ -97,7 +97,7 @@
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="col2" id="stC-Tl-0qg">
                                                                 <font key="font" metaFont="system"/>
-                                                                <color key="textColor" red="0.69019607843137254" green="0.58823529411764708" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="textColor" red="0.77647058820000003" green="0.17200254030000001" blue="0.37569220939999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
@@ -136,7 +136,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="e.g. pdf or google.com" bezelStyle="round" id="vdY-Lj-0Ys">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" red="0.69019607839999997" green="0.58823529409999997" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.77647058820000003" green="0.17200254030000001" blue="0.37569220939999998" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" white="1" alpha="0.070000000000000007" colorSpace="deviceWhite"/>
                         </textFieldCell>
                     </textField>
@@ -165,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Docs/googlefolder" bezelStyle="round" id="JYz-SX-JpZ">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" red="0.69019607839999997" green="0.58823529409999997" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.77647058820000003" green="0.17200254030000001" blue="0.37569220939999998" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
