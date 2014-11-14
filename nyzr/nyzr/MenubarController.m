@@ -13,8 +13,8 @@
         // Install status item into the menu bar
         NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:STATUS_ITEM_VIEW_WIDTH];
         _statusItemView = [[StatusItemView alloc] initWithStatusItem:statusItem];
-        _statusItemView.image = [NSImage imageNamed:@"paper18"];
-        _statusItemView.alternateImage = [NSImage imageNamed:@"paper18"];
+        _statusItemView.image = [NSImage imageNamed:@"16x16"];
+        _statusItemView.alternateImage = [NSImage imageNamed:@"menubar"];
         _statusItemView.action = @selector(togglePanel:);        
     }
     return self;

@@ -56,6 +56,8 @@
 		FEE035191A16A4A700F1BC54 /* delete84 3.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE035171A16A4A700F1BC54 /* delete84 3.png */; };
 		FEE0351A1A16A4A700F1BC54 /* file97 3.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE035181A16A4A700F1BC54 /* file97 3.png */; };
 		FEE0351C1A16A62F00F1BC54 /* delete84 4.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE0351B1A16A62F00F1BC54 /* delete84 4.png */; };
+		FEE0351E1A16B0C700F1BC54 /* menubar.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE0351D1A16B0C700F1BC54 /* menubar.png */; };
+		FEE035201A16B11300F1BC54 /* 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE0351F1A16B11300F1BC54 /* 16x16.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +159,8 @@
 		FEE035171A16A4A700F1BC54 /* delete84 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete84 3.png"; sourceTree = "<group>"; };
 		FEE035181A16A4A700F1BC54 /* file97 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "file97 3.png"; sourceTree = "<group>"; };
 		FEE0351B1A16A62F00F1BC54 /* delete84 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete84 4.png"; sourceTree = "<group>"; };
+		FEE0351D1A16B0C700F1BC54 /* menubar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubar.png; sourceTree = "<group>"; };
+		FEE0351F1A16B11300F1BC54 /* 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16x16.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +222,8 @@
 		FE3340001A15932800C5828A /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				FEE0351F1A16B11300F1BC54 /* 16x16.png */,
+				FEE0351D1A16B0C700F1BC54 /* menubar.png */,
 				FEE035091A16A0F800F1BC54 /* nyzr-bg-dark.png */,
 				FEE0350A1A16A0F800F1BC54 /* nyzr-bg-light.png */,
 				FEE0350D1A16A21500F1BC54 /* nyzr-bg-light2.png */,
@@ -459,6 +465,7 @@
 			files = (
 				FEE035191A16A4A700F1BC54 /* delete84 3.png in Resources */,
 				FA86775A1A167BE000AED68B /* MoveAndMaybeAddRule.xib in Resources */,
+				FEE0351E1A16B0C700F1BC54 /* menubar.png in Resources */,
 				FEADE7281A158F6400CCB005 /* InfoPlist.strings in Resources */,
 				FEE035121A16A3B700F1BC54 /* delete84 2.png in Resources */,
 				FE333FF71A158FDD00C5828A /* Panel.xib in Resources */,
@@ -474,6 +481,7 @@
 				FEE034F81A1659A500F1BC54 /* round73.png in Resources */,
 				FEADE72E1A158F6400CCB005 /* Credits.rtf in Resources */,
 				FEE0350E1A16A21500F1BC54 /* nyzr-bg-light2.png in Resources */,
+				FEE035201A16B11300F1BC54 /* 16x16.png in Resources */,
 				FEE0351C1A16A62F00F1BC54 /* delete84 4.png in Resources */,
 				FEE034F41A1657D300F1BC54 /* delete84.png in Resources */,
 				FEE0351A1A16A4A700F1BC54 /* file97 3.png in Resources */,

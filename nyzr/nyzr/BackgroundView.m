@@ -16,7 +16,7 @@
 
 #pragma mark -
 - (void)awakeFromNib {
-    self.layer.contents = (id)[NSImage imageNamed : @"nyzr-bg-only"];
+//    self.layer.contents = (id)[NSImage imageNamed : @"nyzr-bg-only"];
 }
 
 - (void)drawRect:(NSRect)dirtyRect {
