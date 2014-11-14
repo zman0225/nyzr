@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NRDirectoryMonitor : NSObject
-
++ (id)defaultMonitor;
 @end

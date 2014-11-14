@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA41A4DC1A159E4B00BD5BA4 /* RuleMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41A4DB1A159E4B00BD5BA4 /* RuleMatcher.m */; };
-		FA41A4DF1A15A3C000BD5BA4 /* Rule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41A4DE1A15A3C000BD5BA4 /* Rule.m */; };
-		FA41A4E31A15A6D800BD5BA4 /* TLDMatcherRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41A4E21A15A6D800BD5BA4 /* TLDMatcherRule.m */; };
-		FA41A4E61A15A6E400BD5BA4 /* ExtensionMatcherRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41A4E51A15A6E400BD5BA4 /* ExtensionMatcherRule.m */; };
 		FE333FF41A158FDD00C5828A /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FE61A158FDD00C5828A /* BackgroundView.m */; };
 		FE333FF51A158FDD00C5828A /* MenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FE81A158FDD00C5828A /* MenubarController.m */; };
 		FE333FF61A158FDD00C5828A /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FEA1A158FDD00C5828A /* Panel.m */; };
@@ -18,6 +14,12 @@
 		FE333FF81A158FDD00C5828A /* PanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FED1A158FDD00C5828A /* PanelController.m */; };
 		FE333FFD1A158FDD00C5828A /* StatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FF31A158FDD00C5828A /* StatusItemView.m */; };
 		FE333FFF1A15912F00C5828A /* paper18.png in Resources */ = {isa = PBXBuildFile; fileRef = FE333FFE1A15912F00C5828A /* paper18.png */; };
+		FE3340061A1593B300C5828A /* NRDirectoryMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3340051A1593B300C5828A /* NRDirectoryMonitor.m */; };
+		FE3340081A15A11700C5828A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3340071A15A11700C5828A /* CoreFoundation.framework */; };
+		FE33401C1A15AA0600C5828A /* CDEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE33401B1A15AA0600C5828A /* CDEvents.framework */; };
+		FE33401E1A15AA7900C5828A /* CDEvents.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE33401B1A15AA0600C5828A /* CDEvents.framework */; };
+		FE3340211A15AFE400C5828A /* NRFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3340201A15AFE400C5828A /* NRFile.m */; };
+		FE3340271A15B86500C5828A /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3340261A15B86500C5828A /* FileHash.m */; };
 		FEADE71E1A158F6400CCB005 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEADE71D1A158F6400CCB005 /* Cocoa.framework */; };
 		FEADE7281A158F6400CCB005 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEADE7261A158F6400CCB005 /* InfoPlist.strings */; };
 		FEADE72A1A158F6400CCB005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEADE7291A158F6400CCB005 /* main.m */; };
@@ -41,15 +43,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FE33401D1A15AA6C00C5828A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FE33401E1A15AA7900C5828A /* CDEvents.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		FA41A4DA1A159E4A00BD5BA4 /* RuleMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleMatcher.h; sourceTree = "<group>"; };
-		FA41A4DB1A159E4B00BD5BA4 /* RuleMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleMatcher.m; sourceTree = "<group>"; };
-		FA41A4DD1A15A3C000BD5BA4 /* Rule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rule.h; sourceTree = "<group>"; };
-		FA41A4DE1A15A3C000BD5BA4 /* Rule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rule.m; sourceTree = "<group>"; };
-		FA41A4E11A15A6D800BD5BA4 /* TLDMatcherRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLDMatcherRule.h; sourceTree = "<group>"; };
-		FA41A4E21A15A6D800BD5BA4 /* TLDMatcherRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLDMatcherRule.m; sourceTree = "<group>"; };
-		FA41A4E41A15A6E400BD5BA4 /* ExtensionMatcherRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionMatcherRule.h; sourceTree = "<group>"; };
-		FA41A4E51A15A6E400BD5BA4 /* ExtensionMatcherRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionMatcherRule.m; sourceTree = "<group>"; };
 		FE333FE51A158FDD00C5828A /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		FE333FE61A158FDD00C5828A /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		FE333FE71A158FDD00C5828A /* MenubarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenubarController.h; sourceTree = "<group>"; };
@@ -62,6 +69,14 @@
 		FE333FF21A158FDD00C5828A /* StatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemView.h; sourceTree = "<group>"; };
 		FE333FF31A158FDD00C5828A /* StatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemView.m; sourceTree = "<group>"; };
 		FE333FFE1A15912F00C5828A /* paper18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper18.png; sourceTree = "<group>"; };
+		FE3340041A1593B300C5828A /* NRDirectoryMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRDirectoryMonitor.h; sourceTree = "<group>"; };
+		FE3340051A1593B300C5828A /* NRDirectoryMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRDirectoryMonitor.m; sourceTree = "<group>"; };
+		FE3340071A15A11700C5828A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		FE33401B1A15AA0600C5828A /* CDEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CDEvents.framework; sourceTree = "<group>"; };
+		FE33401F1A15AFE400C5828A /* NRFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRFile.h; sourceTree = "<group>"; };
+		FE3340201A15AFE400C5828A /* NRFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRFile.m; sourceTree = "<group>"; };
+		FE3340251A15B86500C5828A /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
+		FE3340261A15B86500C5828A /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
 		FEADE71A1A158F6400CCB005 /* nyzr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nyzr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEADE71D1A158F6400CCB005 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FEADE7201A158F6400CCB005 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -88,6 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE33401C1A15AA0600C5828A /* CDEvents.framework in Frameworks */,
+				FE3340081A15A11700C5828A /* CoreFoundation.framework in Frameworks */,
 				FEADE71E1A158F6400CCB005 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,29 +121,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA41A4D91A159E2B00BD5BA4 /* RuleMatcher */ = {
-			isa = PBXGroup;
-			children = (
-				FA41A4E01A15A6AE00BD5BA4 /* Rule */,
-				FA41A4DA1A159E4A00BD5BA4 /* RuleMatcher.h */,
-				FA41A4DB1A159E4B00BD5BA4 /* RuleMatcher.m */,
-			);
-			name = RuleMatcher;
-			sourceTree = "<group>";
-		};
-		FA41A4E01A15A6AE00BD5BA4 /* Rule */ = {
-			isa = PBXGroup;
-			children = (
-				FA41A4DD1A15A3C000BD5BA4 /* Rule.h */,
-				FA41A4DE1A15A3C000BD5BA4 /* Rule.m */,
-				FA41A4E11A15A6D800BD5BA4 /* TLDMatcherRule.h */,
-				FA41A4E21A15A6D800BD5BA4 /* TLDMatcherRule.m */,
-				FA41A4E41A15A6E400BD5BA4 /* ExtensionMatcherRule.h */,
-				FA41A4E51A15A6E400BD5BA4 /* ExtensionMatcherRule.m */,
-			);
-			name = Rule;
-			sourceTree = "<group>";
-		};
 		FE3340001A15932800C5828A /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +138,8 @@
 				FE333FE81A158FDD00C5828A /* MenubarController.m */,
 				FE333FEC1A158FDD00C5828A /* PanelController.h */,
 				FE333FED1A158FDD00C5828A /* PanelController.m */,
+				FE3340041A1593B300C5828A /* NRDirectoryMonitor.h */,
+				FE3340051A1593B300C5828A /* NRDirectoryMonitor.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -192,6 +188,8 @@
 		FEADE71C1A158F6400CCB005 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE33401B1A15AA0600C5828A /* CDEvents.framework */,
+				FE3340071A15A11700C5828A /* CoreFoundation.framework */,
 				FEADE71D1A158F6400CCB005 /* Cocoa.framework */,
 				FEADE73C1A158F6500CCB005 /* XCTest.framework */,
 				FEADE71F1A158F6400CCB005 /* Other Frameworks */,
@@ -212,13 +210,16 @@
 		FEADE7231A158F6400CCB005 /* nyzr */ = {
 			isa = PBXGroup;
 			children = (
-				FA41A4D91A159E2B00BD5BA4 /* RuleMatcher */,
 				FE3340001A15932800C5828A /* Graphics */,
 				FE3340011A15933500C5828A /* controller */,
 				FE3340031A15934900C5828A /* xib */,
 				FEADE7351A158F6500CCB005 /* Images.xcassets */,
 				FE3340021A15934200C5828A /* views */,
 				FEADE7241A158F6400CCB005 /* Supporting Files */,
+				FE33401F1A15AFE400C5828A /* NRFile.h */,
+				FE3340201A15AFE400C5828A /* NRFile.m */,
+				FE3340251A15B86500C5828A /* FileHash.h */,
+				FE3340261A15B86500C5828A /* FileHash.m */,
 			);
 			path = nyzr;
 			sourceTree = "<group>";
@@ -263,6 +264,7 @@
 				FEADE7161A158F6400CCB005 /* Sources */,
 				FEADE7171A158F6400CCB005 /* Frameworks */,
 				FEADE7181A158F6400CCB005 /* Resources */,
+				FE33401D1A15AA6C00C5828A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -357,14 +359,13 @@
 				FE333FF61A158FDD00C5828A /* Panel.m in Sources */,
 				FE333FF51A158FDD00C5828A /* MenubarController.m in Sources */,
 				FE333FF81A158FDD00C5828A /* PanelController.m in Sources */,
-				FA41A4E61A15A6E400BD5BA4 /* ExtensionMatcherRule.m in Sources */,
+				FE3340211A15AFE400C5828A /* NRFile.m in Sources */,
 				FE333FFD1A158FDD00C5828A /* StatusItemView.m in Sources */,
-				FA41A4DC1A159E4B00BD5BA4 /* RuleMatcher.m in Sources */,
+				FE3340271A15B86500C5828A /* FileHash.m in Sources */,
+				FE3340061A1593B300C5828A /* NRDirectoryMonitor.m in Sources */,
 				FEADE7311A158F6400CCB005 /* NRAppDelegate.m in Sources */,
 				FEADE72A1A158F6400CCB005 /* main.m in Sources */,
-				FA41A4E31A15A6D800BD5BA4 /* TLDMatcherRule.m in Sources */,
 				FE333FF41A158FDD00C5828A /* BackgroundView.m in Sources */,
-				FA41A4DF1A15A3C000BD5BA4 /* Rule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,11 +498,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nyzr/nyzr-Prefix.pch";
 				INFOPLIST_FILE = "nyzr/nyzr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -511,11 +515,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nyzr/nyzr-Prefix.pch";
 				INFOPLIST_FILE = "nyzr/nyzr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
