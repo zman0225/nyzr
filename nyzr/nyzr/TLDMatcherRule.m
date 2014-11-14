@@ -22,4 +22,18 @@
     return self;
 }
 
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:TLDToMatch forKey:@"tld"];
+    [encoder encodeObject:directoryToMoveTo forKey:@"directoryToMoveTo"];
+}
+
+- (id) initWithCoder:(NSCoder *)decoder {
+    NSString *tld = [decoder decodeObjectForKey:@"tld"];
+    directoryToMoveTo = [decoder decodeObjectForKey:@"directoryToMoveTo"];
+    self = [self initWithTLD:tld];
+    [self setDirectoryToMoveTo:directoryToMoveTo];
+    return self;
+}
+
+
 @end

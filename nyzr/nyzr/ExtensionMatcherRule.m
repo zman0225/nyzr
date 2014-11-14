@@ -22,4 +22,17 @@
     return self;
 }
 
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:extensionToMatch forKey:@"extensionToMatch"];
+    [encoder encodeObject:directoryToMoveTo forKey:@"directoryToMoveTo"];
+}
+
+- (id) initWithCoder:(NSCoder *)decoder {
+    NSString *ext = [decoder decodeObjectForKey:@"extensionToMatch"];
+    directoryToMoveTo = [decoder decodeObjectForKey:@"directoryToMoveTo"];
+    self = [self initWithExtension:ext];
+    [self setDirectoryToMoveTo:directoryToMoveTo];
+    return self;
+}
+
 @end

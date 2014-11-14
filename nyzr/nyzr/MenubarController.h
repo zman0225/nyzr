@@ -1,3 +1,5 @@
+#import "RuleMatcher.h"
+
 #define STATUS_ITEM_VIEW_WIDTH 24.0
 
 #pragma mark -
@@ -7,6 +9,7 @@
 @interface MenubarController : NSObject {
 @private
     StatusItemView *_statusItemView;
+    RuleMatcher *_rm;
 }
 
 @property (nonatomic) BOOL hasActiveIcon;

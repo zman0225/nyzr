@@ -10,13 +10,21 @@
 #import "Rule.h"
 #import "TLDMatcherRule.h"
 #import "ExtensionMatcherRule.h"
+#import <TMCache.h>
+@interface RuleMatcher (){
+    NSMutableArray *rules;
+}
+
+@end
 
 @implementation RuleMatcher
 
 - (id)init {
     self = [super init];
-    self->rules = [[NSMutableArray alloc] init];
-    [self loadRulesFromFile];
+    if (self) {
+        rules = [[NSMutableArray alloc] init];
+        [self loadRulesFromCache];
+    }
     return self;
 }
 
@@ -30,16 +38,32 @@
     return @"no match";
 }
 
-- (void)loadRulesFromFile {
+- (void)createAndSetDefaultRules {
+    NSLog(@"Setting default rules");
     Rule *tmp = [[TLDMatcherRule alloc] initWithTLD:@"google.com"];
     [tmp setDirectoryToMoveTo:@"~/Downloads/google"];
-    [self->rules addObject:tmp];
+    [rules addObject:tmp];
     tmp = [[TLDMatcherRule alloc] initWithTLD:@"facebook.com"];
     [tmp setDirectoryToMoveTo:@"~/Downloads/facebook"];
-    [self->rules addObject:tmp];
+    [rules addObject:tmp];
     tmp = [[ExtensionMatcherRule alloc] initWithExtension:@"pdf"];
     [tmp setDirectoryToMoveTo:@"~/Downloads/pdf"];
-    [self->rules addObject:tmp];
+    [rules addObject:tmp];
+    
+    [[TMCache sharedCache] setObject:rules forKey:@"rules" block:nil];
+    
+}
+
+- (void)loadRulesFromCache {
+    [[TMCache sharedCache] objectForKey:@"rules"
+                            block:^(TMCache *cache, NSString *key, id object) {
+                                rules = (NSMutableArray *)object;
+                                NSLog(@"number of rules: %lu", (unsigned long)[rules count]);
+                                if ([rules count] == 0) {
+                                    [self createAndSetDefaultRules];
+                                    NSLog(@"number of rules: %lu", (unsigned long)[rules count]);
+                                }
+                            }];
 }
 
 @end

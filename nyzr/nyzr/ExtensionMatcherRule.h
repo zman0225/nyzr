@@ -17,4 +17,7 @@
 
 - (id)initWithExtension:(NSString*)extension;
 
+- (void) encodeWithCoder:(NSCoder *)encoder;
+- (id) initWithCoder:(NSCoder *)decoder;
+
 @end

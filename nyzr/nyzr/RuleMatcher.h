@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RuleMatcher : NSObject <NSCoding> {
-    NSMutableArray *rules;
-}
+@interface RuleMatcher : NSObject
 
 - (NSString*)matchesRule:(NSString*)extension :(NSString*)tld;
-- (void) encodeWithCoder: (NSCoder*)coder;
+- (void)createAndSetDefaultRules;
 
 @end
-	

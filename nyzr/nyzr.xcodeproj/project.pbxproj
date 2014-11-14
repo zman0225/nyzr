@@ -598,6 +598,7 @@
 				GCC_PREFIX_HEADER = "nyzr/nyzr-Prefix.pch";
 				INFOPLIST_FILE = "nyzr/nyzr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -616,6 +617,7 @@
 				GCC_PREFIX_HEADER = "nyzr/nyzr-Prefix.pch";
 				INFOPLIST_FILE = "nyzr/nyzr-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
