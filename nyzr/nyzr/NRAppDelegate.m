@@ -11,6 +11,9 @@
 #import <TMCache.h>
 #import "MoveViewController.h"
 #import "Panel.h"
+#import "NRFile.h"
+#import "NRRule.h"
+
 
 @implementation NRAppDelegate
 
@@ -54,40 +57,75 @@ void *kContextActivePanel = &kContextActivePanel;
     return NSTerminateNow;
 }
 
-- (void) userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
-{
+- (void)learningConfirmation:(NSString *)filename domain:(NSString *)domain andExtension:(NSString *)extension {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Extension"];
+    [alert addButtonWithTitle:@"Domain"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"Make a new filter?"];
+    NSString *info = [NSString stringWithFormat:@"Would you like to automatically make a filter for %@?\nDomain:%@\nExtension:%@", filename, domain, extension];
+    [alert setInformativeText:info];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    NSModalResponse result = [alert runModal];
+    NSLog(@"result %lu", result);
+    
+    NSMutableArray *dict = [[NRConstants allRules] mutableCopy];
+    NRRule *rule;
+    
+    
+    if (result == 1000) {
+        NSLog(@"New rule by ext: %@", extension);
+        rule = [[NRRule alloc] initWithFilter:extension folderName:filename];
+        [dict addObject:rule];
+        
+        [[TMCache sharedCache] setObject:[[NSSet setWithArray:dict] allObjects] forKey:kNRRules];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"rulesEdited" object:nil];
+    }
+    else if (result == 1001) {
+        NSLog(@"New rule by domain: %@", domain);
+        
+        rule = [[NRRule alloc] initWithFilter:domain folderName:filename];
+        [dict addObject:rule];
+        
+        [[TMCache sharedCache] setObject:[[NSSet setWithArray:dict] allObjects] forKey:kNRRules];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"rulesEdited" object:nil];
+    }
+}
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
     NSLog(@"Notification activated, identifier is %@", [notification identifier]);
-    NSArray *info = [[notification identifier] componentsSeparatedByString: @"_|_"];
+    NSArray *info = [[notification identifier] componentsSeparatedByString:@"_|_"];
     // If file wasn't moved
     NSError *error;
-
+    
     if ([info[0] isEqualToString:@"0"]) {
         NSLog(@"Opening interface to move file %@", info[1]);
         NSArray *urls = [Panel directoryPicker];
-        if (urls&&urls.count>0) {
+        if (urls && urls.count > 0) {
             NSString *source = [[NSString stringWithFormat:@"~/Downloads/%@", info[1]] stringByExpandingTildeInPath];
-
+            
             NSURL *url = urls[0];
             url = [url URLByAppendingPathComponent:info[1]];
             [[NSFileManager defaultManager] moveItemAtPath:[source stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:[[url path] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] error:&error];
             NSLog(@"Moving %@ to %@", source, [[url path] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
-
+            NRFile *file = [NRFile fileWithFilePath:[url path]];
+            [self learningConfirmation:file.name domain:[file domain] andExtension:file.extension];
         }
-//        MoveViewController *wc = [[MoveViewController alloc] init];
-//        [[wc window] makeKeyAndOrderFront:wc];
-        
-    } else {
+        //        MoveViewController *wc = [[MoveViewController alloc] init];
+        //        [[wc window] makeKeyAndOrderFront:wc];
+    }
+    else {
         NSString *source = [NSString stringWithFormat:@"%@/%@", info[2], info[1]];
-
+        
         NSString *dest = [[NSString stringWithFormat:@"~/Downloads/%@", info[1]] stringByExpandingTildeInPath];
         NSLog(@"Undoing move of %@ to %@", info[1], info[2]);
         NSLog(@"Moving %@ to %@", source, dest);
         [[NSFileManager defaultManager] moveItemAtPath:[source stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:dest error:&error];
     }
     if (error) {
-        NSLog(@"ERROR: %@",error);
+        NSLog(@"ERROR: %@", error);
     }
-    [center removeDeliveredNotification: notification];
+    [center removeDeliveredNotification:notification];
 }
 
 #pragma mark - Actions

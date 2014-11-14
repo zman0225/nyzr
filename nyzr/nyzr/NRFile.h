@@ -15,6 +15,7 @@
 @property (strong) NSDate *modificationDate;
 @property (strong) NSString *path;
 
++(id)fileWithFilePath:(NSString*)filepath;
 - (id)initWithName:(NSString *)name withType:(NSString *)type withPath:(NSString *)path withCreationDate:(NSDate *)creationDate andWithModificationDate:(NSDate *)modDate;
 - (NSString *)domain;
 - (NSString *)extension;

@@ -17,6 +17,14 @@
 
 @implementation NRFile
 
++ (id)fileWithFilePath:(NSString *)filepath {
+    NSString *filename_trunc = [filepath lastPathComponent];
+    NSError *error;
+    NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:filepath error:&error];
+    NRFile *file = [[NRFile alloc] initWithName:filename_trunc withType:fileInfo.fileType withPath:filepath withCreationDate:fileInfo.fileCreationDate andWithModificationDate:fileInfo.fileModificationDate];
+    return file;
+}
+
 - (id)initWithName:(NSString *)name withType:(NSString *)type withPath:(NSString *)path withCreationDate:(NSDate *)creationDate andWithModificationDate:(NSDate *)modDate {
     if (self = [super init]) {
         self.name = name;
@@ -74,13 +82,13 @@
     if ([prefix isEqualToString:@"www."])
         domain = [host substringFromIndex:4];
     else
-    domain = host;
+        domain = host;
     
     return domain;
 }
 
 - (NSString *)extension {
-    NSURL *url = [NSURL URLWithString:_path];
+    NSURL *url = [NSURL fileURLWithPath:_path];
     NSLog(@"full path %@", _path);
     NSLog(@"extension %@", [url pathExtension]);
     

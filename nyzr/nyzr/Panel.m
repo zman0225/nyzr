@@ -15,6 +15,13 @@
     selectedInd = -1;
     [self.monitoredTextLabel setStringValue:[NRConstants monitoredDirectory]];
     [self.rootTextLabel setStringValue:[NRConstants rootDirectory]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"rulesEdited" object:nil];
+}
+
+- (void)refresh {
+    NSLog(@"rules edited");
+    [self.rulesTableView reloadData];
 }
 
 - (BOOL)canBecomeKeyWindow;
