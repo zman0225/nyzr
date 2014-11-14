@@ -71,9 +71,9 @@
     NSString *prefix = [host substringToIndex:4];
     NSString *domain;
     
-    //    if ([prefix isEqualToString:@"www."])
-    //        domain = [host substringFromIndex:4];
-    //    else
+    if ([prefix isEqualToString:@"www."])
+        domain = [host substringFromIndex:4];
+    else
     domain = host;
     
     return domain;
