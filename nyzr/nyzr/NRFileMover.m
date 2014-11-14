@@ -9,16 +9,13 @@
 #import "NRFileMover.h"
 #import "NRRule.h"
 
-@interface NRFileMover () {
-    NSArray *rules;
-}
+@interface NRFileMover ()
 
 @end
 @implementation NRFileMover
 
 - (id)init {
     if (self = [super init]) {
-        rules = [NRConstants allRules];
     }
     
     return self;
@@ -44,11 +41,11 @@
 
 // Returns the directory that the file was moved to (nil if no change was made)
 - (void)moveNewFile:(NRFile *)file {
-//    NSString *extension = [file extension];
-//    NSString *domain = [file domain];
+    //    NSString *extension = [file extension];
+    //    NSString *domain = [file domain];
     
     NRRule *best = nil;
-    for (NRRule *rule in rules) {
+    for (NRRule *rule in[NRConstants allRules]) {
         if ([rule matchesRule:file]) {
             if (!best) {
                 best = rule;
@@ -76,9 +73,10 @@
         notification.soundName = NSUserNotificationDefaultSoundName;
         notification.hasActionButton = YES;
         notification.actionButtonTitle = @"Move";
-        notification.identifier = [NSString stringWithFormat: @"0_|_%@_|_%@", [file name], [[NSUUID UUID] UUIDString]];
+        notification.identifier = [NSString stringWithFormat:@"0_|_%@_|_%@", [file name], [[NSUUID UUID] UUIDString]];
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-    } else {
+    }
+    else {
         NSUserNotification *notification = [[NSUserNotification alloc] init];
         notification.title = @"Downloaded File Moved";
         if ([file domain]) {
@@ -90,7 +88,7 @@
         notification.soundName = NSUserNotificationDefaultSoundName;
         notification.hasActionButton = YES;
         notification.actionButtonTitle = @"Undo";
-        notification.identifier = [NSString stringWithFormat: @"1_|_%@_|_%@_|_%@", [file name], [best folderURL], [[NSUUID UUID] UUIDString]];
+        notification.identifier = [NSString stringWithFormat:@"1_|_%@_|_%@_|_%@", [file name], [best folderURL], [[NSUUID UUID] UUIDString]];
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
     //
