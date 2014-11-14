@@ -69,8 +69,7 @@
 - (void)windowDidResignKey:(NSNotification *)notification;
 {
     if ([[self window] isVisible]) {
-                self.hasActivePanel = NO;
-//                [self.window orderBack:nil];
+        self.hasActivePanel = NO;
     }
 }
 
@@ -181,6 +180,10 @@
     dispatch_after(dispatch_walltime(NULL, NSEC_PER_SEC * CLOSE_DURATION * 2), dispatch_get_main_queue(), ^{
         [self.window orderOut:nil];
     });
+}
+
+- (IBAction)cancelButtonPressed:(NSButton *)sender {
+    [self setHasActivePanel:NO];
 }
 
 @end
