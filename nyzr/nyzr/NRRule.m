@@ -15,7 +15,7 @@
     if (self = [super init]) {
         self.filter = filter;
         NSURL *temp = [NSURL URLWithString:filter];
-        if ([temp isFileURL]) {
+        if (![temp isFileURL]) {
             self.rulePriority = 1;
             self.ruleType = NRTLD;
         }
@@ -34,10 +34,13 @@
         return YES;
     }
     
-    NSURL *domain = [NSURL URLWithString:file.domain];
+    NSURL *domain = [NSURL URLWithString:[file domain]];
     NSURL *temp = [NSURL URLWithString:self.filter];
-    
-    if (domain && self.ruleType == NRFileExtension && [[domain host] isEqualToString:[temp host]]) {
+    NSLog(@"%@ vs %@ - %@", domain, [temp host], self.filter);
+    if ([[domain path] isEqualToString:[temp host]]) {
+        NSLog(@"asd");
+    }
+    if (domain && self.ruleType == NRTLD && [[domain path] isEqualToString:[temp host]]) {
         return YES;
     }
     
