@@ -17,4 +17,8 @@
 @property (strong) NSString *path;
 
 - (id)initWithName:(NSString *)name withType:(NSString *)type withPath:(NSURL *)path withCreationDate:(NSDate *)creationDate andWithModificationDate:(NSDate *)modDate;
+- (NSString *)domain;
+- (NSString *)extension;
+- (NSDictionary *)metaData;
+
 @end
