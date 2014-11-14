@@ -52,6 +52,19 @@ void *kContextActivePanel = &kContextActivePanel;
     return NSTerminateNow;
 }
 
+- (void) userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification
+{
+    NSLog(@"Notification activated, identifier is %@", [notification identifier]);
+    NSArray *info = [[notification identifier] componentsSeparatedByString: @"_|_"];
+    // If file wasn't moved
+    if ([info[0] isEqualToString:@"0"]) {
+        NSLog(@"Opening interface to move file %@", info[1]);
+    } else {
+        NSLog(@"Undoing move of %@ to %@", info[1], info[2]);
+    }
+    [center removeDeliveredNotification: notification];
+}
+
 #pragma mark - Actions
 
 - (IBAction)togglePanel:(id)sender {

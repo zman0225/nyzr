@@ -76,6 +76,7 @@
         notification.soundName = NSUserNotificationDefaultSoundName;
         notification.hasActionButton = YES;
         notification.actionButtonTitle = @"Move";
+        notification.identifier = [NSString stringWithFormat: @"0_|_%@_|_%@", [file name], [[NSUUID UUID] UUIDString]];
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     } else {
         NSUserNotification *notification = [[NSUserNotification alloc] init];
@@ -89,6 +90,7 @@
         notification.soundName = NSUserNotificationDefaultSoundName;
         notification.hasActionButton = YES;
         notification.actionButtonTitle = @"Undo";
+        notification.identifier = [NSString stringWithFormat: @"1_|_%@_|_%@_|_%@", [file name], [best folderURL], [[NSUUID UUID] UUIDString]];
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
     //
