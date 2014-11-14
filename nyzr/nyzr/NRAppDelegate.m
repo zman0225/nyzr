@@ -38,10 +38,12 @@ void *kContextActivePanel = &kContextActivePanel;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
     // Install icon into the menu bar
-    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     self.menubarController = [[MenubarController alloc] init];
+    [NRConstants rootDirectory];
     [NRConstants monitoredDirectory];
     [NRDirectoryMonitor defaultMonitor];
+    //    [[TMCache sharedCache] removeAllObjects];
 }
 
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {

@@ -18,7 +18,6 @@
 
 @synthesize backgroundView = _backgroundView;
 @synthesize delegate = _delegate;
-@synthesize monitoredDirectoryLabel = _monitoredDirectoryLabel;
 
 #pragma mark -
 

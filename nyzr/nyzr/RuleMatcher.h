@@ -10,7 +10,7 @@
 
 @interface RuleMatcher : NSObject
 
-- (NSString*)matchesRule:(NSString*)extension :(NSString*)tld;
+- (NSString *)matchesRule:(NSString *)extension TLD:(NSString *)tld;
 - (void)createAndSetDefaultRules;
 
 @end

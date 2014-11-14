@@ -38,6 +38,8 @@
 		FEADE7461A158F6500CCB005 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEADE7441A158F6500CCB005 /* InfoPlist.strings */; };
 		FEADE7481A158F6500CCB005 /* nyzrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEADE7471A158F6500CCB005 /* nyzrTests.m */; };
 		FEB517F91A15DD9C00E5120E /* NRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB517F81A15DD9C00E5120E /* NRConstants.m */; };
+		FEE034ED1A160C3200F1BC54 /* NRFileMover.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE034EC1A160C3200F1BC54 /* NRFileMover.m */; };
+		FEE034F01A16177900F1BC54 /* NRRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE034EF1A16177900F1BC54 /* NRRule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,10 @@
 		FEADE7471A158F6500CCB005 /* nyzrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nyzrTests.m; sourceTree = "<group>"; };
 		FEB517F71A15DD9C00E5120E /* NRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRConstants.h; sourceTree = "<group>"; };
 		FEB517F81A15DD9C00E5120E /* NRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRConstants.m; sourceTree = "<group>"; };
+		FEE034EB1A160C3200F1BC54 /* NRFileMover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRFileMover.h; sourceTree = "<group>"; };
+		FEE034EC1A160C3200F1BC54 /* NRFileMover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRFileMover.m; sourceTree = "<group>"; };
+		FEE034EE1A16177900F1BC54 /* NRRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRRule.h; sourceTree = "<group>"; };
+		FEE034EF1A16177900F1BC54 /* NRRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRRule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +288,10 @@
 				FE3340261A15B86500C5828A /* FileHash.m */,
 				FEB517F71A15DD9C00E5120E /* NRConstants.h */,
 				FEB517F81A15DD9C00E5120E /* NRConstants.m */,
+				FEE034EB1A160C3200F1BC54 /* NRFileMover.h */,
+				FEE034EC1A160C3200F1BC54 /* NRFileMover.m */,
+				FEE034EE1A16177900F1BC54 /* NRRule.h */,
+				FEE034EF1A16177900F1BC54 /* NRRule.m */,
 			);
 			path = nyzr;
 			sourceTree = "<group>";
@@ -457,10 +467,12 @@
 				FE333FF61A158FDD00C5828A /* Panel.m in Sources */,
 				FE333FF51A158FDD00C5828A /* MenubarController.m in Sources */,
 				FA48B52B1A15C02C008664E2 /* RuleMatcher.m in Sources */,
+				FEE034F01A16177900F1BC54 /* NRRule.m in Sources */,
 				FE333FF81A158FDD00C5828A /* PanelController.m in Sources */,
 				FE3340211A15AFE400C5828A /* NRFile.m in Sources */,
 				FEB517F91A15DD9C00E5120E /* NRConstants.m in Sources */,
 				FA48B5291A15C02C008664E2 /* ExtensionMatcherRule.m in Sources */,
+				FEE034ED1A160C3200F1BC54 /* NRFileMover.m in Sources */,
 				FA48B52A1A15C02C008664E2 /* Rule.m in Sources */,
 				FE333FFD1A158FDD00C5828A /* StatusItemView.m in Sources */,
 				FE3340271A15B86500C5828A /* FileHash.m in Sources */,

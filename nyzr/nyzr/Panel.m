@@ -1,5 +1,6 @@
 #import "Panel.h"
 #import <TMCache.h>
+#import "NRRule.h"
 
 @interface Panel () {
     NSInteger selectedInd;
@@ -12,7 +13,8 @@
     [self.rulesTableView setDelegate:self];
     [self.rulesTableView setDataSource:self];
     selectedInd = -1;
-    [self.monitoredTextField setStringValue:[NRConstants monitoredDirectory]];
+    [self.monitoredTextLabel setStringValue:[NRConstants monitoredDirectory]];
+    [self.rootTextLabel setStringValue:[NRConstants rootDirectory]];
 }
 
 - (BOOL)canBecomeKeyWindow;
@@ -20,33 +22,23 @@
     return YES; // Allow Search field to become the first responder
 }
 
-- (NSDictionary *)rulesDictionary {
-    NSDictionary *retval = [[TMCache sharedCache] objectForKey:kNRRules];
-    if (!retval) {
-        retval = [NSDictionary new];
-        [[TMCache sharedCache] setObject:retval forKey:kNRRules];
-    }
-    return retval;
-}
-
 - (void)addRule:(NSString *)extension toFolder:(NSString *)dir {
-    NSMutableDictionary *dict = [[self rulesDictionary] mutableCopy];
-    [dict setObject:dir forKey:extension];
-    [[TMCache sharedCache] setObject:[dict copy] forKey:kNRRules];
+    NSMutableArray *dict = [[NRConstants allRules] mutableCopy];
+    NRRule *rule = [[NRRule alloc] initWithFilter:extension folderName:dir];
+    [dict addObject:rule];
+    [[TMCache sharedCache] setObject:[[NSSet setWithArray:dict] allObjects] forKey:kNRRules];
+    [self.folderTextField setStringValue:@""];
+    [self.extensionTextField setStringValue:@""];
 }
 
-- (void)removeRule:(NSString *)extension {
-    NSMutableDictionary *dict = [[self rulesDictionary] mutableCopy];
-    [dict removeObjectForKey:extension];
+- (void)removeRule:(NRRule *)rule {
+    NSMutableArray *dict = [[NRConstants allRules] mutableCopy];
+    [dict removeObject:rule];
     [[TMCache sharedCache] setObject:[dict copy] forKey:kNRRules];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [self rulesDictionary].count;
-}
-
-- (NSArray *)rules {
-    return [self rulesDictionary].allKeys;
+    return [NRConstants allRules].count;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
@@ -55,12 +47,12 @@
     NSTableCellView *result = [tableView makeViewWithIdentifier:@"RuleCell" owner:self];
     
     // Set the stringValue of the cell's text field to the nameArray value at row
-    NSString *name = [[self rules] objectAtIndex:row];
+    NRRule *rule = [[NRConstants allRules] objectAtIndex:row];
     if (tableColumn == self.columnOne) {
-        result.textField.stringValue =  name;
+        result.textField.stringValue =  [rule.folderURL path];
     }
     else if (tableColumn == self.columnTwo) {
-        result.textField.stringValue =  [[self rulesDictionary] objectForKey:name];
+        result.textField.stringValue =  rule.filter;
     }
     
     
@@ -78,39 +70,24 @@
 }
 
 - (IBAction)deleteButtonPressed:(NSButton *)sender {
-    if (selectedInd > -1 && [[self rules] count] > selectedInd) {
-        NSString *extension = [[self rules] objectAtIndex:selectedInd];
+    if (selectedInd > -1 && [[NRConstants allRules] count] > selectedInd) {
+        NRRule *extension = [[NRConstants allRules] objectAtIndex:selectedInd];
         [self removeRule:extension];
         [self.rulesTableView reloadData];
     }
 }
 
 - (IBAction)addButtonPressed:(NSButton *)sender {
-    if (self.extensionTextField.stringValue.length > 0 && self.folderTextField.stringValue.length > 0) {
-        NSURL *homeURL = [NSURL URLWithString:[NRConstants monitoredDirectory]];
-        [homeURL URLByAppendingPathComponent:self.folderTextField.stringValue];
-        BOOL isDir = NO;
-        if ([[NSFileManager defaultManager] fileExistsAtPath:[homeURL path] isDirectory:&isDir]) {
-            if (!isDir) {
-                return;
-            }
-            NSLog(@"%@ already exists", homeURL);
-        }
-        else {
-            NSError *error;
-            [[NSFileManager defaultManager] createDirectoryAtURL:homeURL withIntermediateDirectories:YES attributes:nil error:&error];
-            NSLog(@"Creating directory %@", homeURL);
-        }
-    }
+    NSLog(@"adding %@, %@", self.extensionTextField.stringValue, self.folderTextField.stringValue);
     [self addRule:self.extensionTextField.stringValue toFolder:self.folderTextField.stringValue];
     [self.rulesTableView reloadData];
 }
 
-- (IBAction)changeDirectoryButtonPressed:(NSButton *)sender {
+- (NSArray *)directoryPicker {
     NSOpenPanel *openDlg = [NSOpenPanel openPanel];
     //    [openDlg setLevel:CGShieldingWindowLevel()];
     //        [self addChildWindow:openDlg ordered:NSWindowAbove];
-    [openDlg makeKeyAndOrderFront:sender];
+    [openDlg makeKeyAndOrderFront:nil];
     //    NSLog(@"%lu %lu", [self orderedIndex], [openDlg orderedIndex]);
     [openDlg setCanChooseFiles:NO];
     [openDlg setCanChooseDirectories:YES];
@@ -121,9 +98,24 @@
     // process the files.
     if ([openDlg runModal] == NSOKButton) {
         // Gets list of all files selected
-        NSArray *files = [openDlg URLs];
+        return [openDlg URLs];
+    }
+    return nil;
+}
+
+- (IBAction)changeDirectoryButtonPressed:(NSButton *)sender {
+    NSArray *files = [self directoryPicker];
+    if (files) {
         [NRConstants setMonitoredDirectory:files[0]];
-        [self.monitoredTextField setStringValue:[NRConstants monitoredDirectory]];
+        [self.monitoredTextLabel setStringValue:[NRConstants monitoredDirectory]];
+    }
+}
+
+- (IBAction)changeRootDirectoryButtonPressed:(id)sender {
+    NSArray *files = [self directoryPicker];
+    if (files) {
+        [NRConstants setRootDirectory:files[0]];
+        [self.rootTextLabel setStringValue:[NRConstants rootDirectory]];
     }
 }
 

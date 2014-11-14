@@ -21,7 +21,7 @@
     if (self = [super init]) {
         self.name = name;
         self.type = type;
-        self.path = path;
+        self.path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         self.creationDate = creationDate;
         self.modificationDate = modDate;
     }
@@ -53,9 +53,12 @@
     NSURL *url;
     
     // Get the URL from which the file was downloaded, if it's available
-    if ([[domains objectAtIndex:1] length] > 2)
-        url = [NSURL URLWithString:[domains objectAtIndex:1]];
-    
+    if ([domains count] > 1) {
+        if ([[domains objectAtIndex:1] length] > 2)
+            url = [NSURL URLWithString:[domains objectAtIndex:1]];
+        else
+            url = [NSURL URLWithString:[domains objectAtIndex:0]];
+    }
     // If it's not available, get the URL of the actual file
     else
         url = [NSURL URLWithString:[domains objectAtIndex:0]];
@@ -76,17 +79,10 @@
 }
 
 - (NSString *)extension {
-    // Make sure the file exists
-    NSFileManager *manager = [NSFileManager defaultManager];
-    
-    if (![manager fileExistsAtPath:_path])
-        return nil;
-    
     NSURL *url = [NSURL URLWithString:_path];
-    NSString *path = [url path];
-    NSString *extension = [path pathExtension];
+    NSLog(@"full path %@", _path);
     
-    return extension;
+    return [url pathExtension];
 }
 
 - (NSDictionary *)metaData {

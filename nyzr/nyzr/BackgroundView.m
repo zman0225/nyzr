@@ -15,9 +15,12 @@
 @synthesize arrowX = _arrowX;
 
 #pragma mark -
+//-(void)awakeFromNib
+//{
+//    self.layer.contents = (id)[NSImage imageNamed:imageName];
+//}
 
-- (void)drawRect:(NSRect)dirtyRect
-{
+- (void)drawRect:(NSRect)dirtyRect {
     NSRect contentRect = NSInsetRect([self bounds], LINE_THICKNESS, LINE_THICKNESS);
     NSBezierPath *path = [NSBezierPath bezierPath];
     
@@ -53,7 +56,7 @@
     [path fill];
     
     [NSGraphicsContext saveGraphicsState];
-
+    
     NSBezierPath *clip = [NSBezierPath bezierPathWithRect:[self bounds]];
     [clip appendBezierPath:path];
     [clip addClip];
@@ -68,8 +71,7 @@
 #pragma mark -
 #pragma mark Public accessors
 
-- (void)setArrowX:(NSInteger)value
-{
+- (void)setArrowX:(NSInteger)value {
     _arrowX = value;
     [self setNeedsDisplay:YES];
 }

@@ -8,12 +8,13 @@
 
 #import "NRDirectory.h"
 #import "NRFile.h"
+#import "NRFileMover.h"
 
 @interface NRDirectory ()
-
 @property (nonatomic, strong) NSString *directory;
 @property (nonatomic, strong) NSSet *currentFileList;
 @property (nonatomic, strong) NSSet *currentFileNames;
+@property (nonatomic, strong) NRFileMover *filemover;
 @end
 
 @implementation NRDirectory
@@ -23,6 +24,7 @@
         self.directory = dir;
         self.currentFileNames = [self validFileNames:self.directory];
         self.currentFileList = [self getNewFileList:self.currentFileNames];
+        self.filemover = [[NRFileMover alloc] init];
     }
     
     return self;
@@ -61,8 +63,9 @@
     NSMutableSet *tempSet = [NSMutableSet new];
     
     for (NSString *filename in fileNames) {
+        NSString *filename_trunc = [filename lastPathComponent];
         NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:self.directory error:&error];
-        NRFile *file = [[NRFile alloc] initWithName:filename withType:fileInfo.fileType withPath:filename withCreationDate:fileInfo.fileCreationDate andWithModificationDate:fileInfo.fileModificationDate];
+        NRFile *file = [[NRFile alloc] initWithName:filename_trunc withType:fileInfo.fileType withPath:filename withCreationDate:fileInfo.fileCreationDate andWithModificationDate:fileInfo.fileModificationDate];
         [tempSet addObject:file];
     }
     return [tempSet copy];
@@ -83,9 +86,10 @@
     if (newFileList.count > 0) {
         NSSet *newFiles = [self newFiles:self.currentFileList and:newFileList];
         if (newFiles.count > 0) {
-            NRFile *newFile = ((NRFile *)[newFiles allObjects][0]);
-            NSLog(@"new files %@", newFile.name);
-            [newFile deleteFile];
+            for (NRFile *file in newFiles) {
+                NSLog(@"new files %@", file.name);
+                [self.filemover moveNewFile:file];
+            }
             self.currentFileList = [self getNewFileList:self.currentFileNames];
         }
     }
