@@ -27,7 +27,7 @@
         [NRConstants createDirectory:[destinationDirectory path]];
         NSString *path = [file path];
         NSError *error;
-//        NSLog(@"Filename %@", [file name]);
+        //        NSLog(@"Filename %@", [file name]);
         NSString *dest = [[[destinationDirectory path] stringByAppendingString:[@"/" stringByAppendingString :[file name]]] stringByExpandingTildeInPath];
         
         // get file unique id
@@ -37,23 +37,24 @@
         if (fattrs) {
             fileID = [fattrs objectForKey:NSFileSystemFileNumber];
         }
-//        NSLog(@"inode %@", fileID);
+        //        NSLog(@"inode %@", fileID);
         
         if ([inodes_processed containsObject:fileID]) {
-//            NSLog(@"Already did this one");
+            //            NSLog(@"Already did this one");
             return false;
-        } else {
-            [inodes_processed addObject:fileID];
-//            NSLog(@"Adding to array");
         }
-    
+        else {
+            [inodes_processed addObject:fileID];
+            //            NSLog(@"Adding to array");
+        }
+        
         [[NSFileManager defaultManager] moveItemAtPath:[path stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:dest error:&error];
         if (error) {
             NSLog(@"moving file %@ to %@ error: %@", file.name, dest, error);
             return false;
         }
         else {
-//            NSLog(@"Moving %@ to %@.", [path stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding], dest);
+            //            NSLog(@"Moving %@ to %@.", [path stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding], dest);
         }
         return true;
     }
@@ -78,13 +79,15 @@
     }
     
     if ([self processRule:best withFile:file]) {
-    //    [NRConstants createDirectory:destinationDirectory];
-    //    if (!destinationDirectory) {
-    //        //        NSLog(@"No rules matched");
-    //
-    
+        //    [NRConstants createDirectory:destinationDirectory];
+        //    if (!destinationDirectory) {
+        //        //        NSLog(@"No rules matched");
+        //
+        
         if (best) {
             NSUserNotification *notification = [[NSUserNotification alloc] init];
+            NSImage *img = [NSImage imageNamed:@"128x128"];
+            [notification setValue:img forKey:@"_identityImage"];
             notification.title = @"Downloaded File Moved";
             if ([file domain]) {
                 notification.informativeText = [NSString stringWithFormat:@"%@ moved to %@", [file name], [best folderURL]];
@@ -101,6 +104,8 @@
     }
     if (!best) {
         NSUserNotification *notification = [[NSUserNotification alloc] init];
+        NSImage *img = [NSImage imageNamed:@"128x128"];
+        [notification setValue:img forKey:@"_identityImage"];
         notification.title = @"New File Downloaded";
         if ([file domain]) {
             notification.informativeText = [NSString stringWithFormat:@"%@ from %@", [file name], [file domain]];

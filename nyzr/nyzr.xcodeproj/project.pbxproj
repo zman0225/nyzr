@@ -58,6 +58,7 @@
 		FEE0351C1A16A62F00F1BC54 /* delete84 4.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE0351B1A16A62F00F1BC54 /* delete84 4.png */; };
 		FEE0351E1A16B0C700F1BC54 /* menubar.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE0351D1A16B0C700F1BC54 /* menubar.png */; };
 		FEE035201A16B11300F1BC54 /* 16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE0351F1A16B11300F1BC54 /* 16x16.png */; };
+		FEE035221A16B2D400F1BC54 /* 128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE035211A16B2D400F1BC54 /* 128x128.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		FEE0351B1A16A62F00F1BC54 /* delete84 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete84 4.png"; sourceTree = "<group>"; };
 		FEE0351D1A16B0C700F1BC54 /* menubar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubar.png; sourceTree = "<group>"; };
 		FEE0351F1A16B11300F1BC54 /* 16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 16x16.png; sourceTree = "<group>"; };
+		FEE035211A16B2D400F1BC54 /* 128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128x128.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		FE3340001A15932800C5828A /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				FEE035211A16B2D400F1BC54 /* 128x128.png */,
 				FEE0351F1A16B11300F1BC54 /* 16x16.png */,
 				FEE0351D1A16B0C700F1BC54 /* menubar.png */,
 				FEE035091A16A0F800F1BC54 /* nyzr-bg-dark.png */,
@@ -475,6 +478,7 @@
 				FEE035141A16A3C900F1BC54 /* file97 2.png in Resources */,
 				FEE035161A16A43000F1BC54 /* round73 2.png in Resources */,
 				FE333FFF1A15912F00C5828A /* paper18.png in Resources */,
+				FEE035221A16B2D400F1BC54 /* 128x128.png in Resources */,
 				FEE035001A1698B900F1BC54 /* verified1.png in Resources */,
 				FEE035101A16A39600F1BC54 /* verified1 2.png in Resources */,
 				FEE0350C1A16A0F800F1BC54 /* nyzr-bg-light.png in Resources */,

@@ -14,8 +14,8 @@
         NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:STATUS_ITEM_VIEW_WIDTH];
         _statusItemView = [[StatusItemView alloc] initWithStatusItem:statusItem];
         _statusItemView.image = [NSImage imageNamed:@"16x16"];
-        _statusItemView.alternateImage = [NSImage imageNamed:@"menubar"];
-        _statusItemView.action = @selector(togglePanel:);        
+        _statusItemView.alternateImage = [NSImage imageNamed:@"16x16"];
+        _statusItemView.action = @selector(togglePanel:);
     }
     return self;
 }
