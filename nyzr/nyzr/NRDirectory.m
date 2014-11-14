@@ -85,7 +85,7 @@
         if (newFiles.count > 0) {
             NRFile *newFile = ((NRFile *)[newFiles allObjects][0]);
             NSLog(@"new files %@", newFile.name);
-            //            [newFile deleteFile];
+            [newFile deleteFile];
             self.currentFileList = [self getNewFileList:self.currentFileNames];
         }
     }

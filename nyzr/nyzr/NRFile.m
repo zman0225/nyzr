@@ -111,8 +111,9 @@
         BOOL success = [[NSFileManager defaultManager] removeItemAtPath:self.path error:&error];
         if (!success) {
             NSLog(@"Error removing file at path: %@", error.localizedDescription);
-        }else{
-            NSLog(@"Remove %@",self.path);
+        }
+        else {
+            NSLog(@"Removed %@", self.path);
         }
     }
 }

@@ -10,4 +10,10 @@
 
 @interface NRConstants : NSObject
 + (NSString *)defaultDirectory;
++ (NSString *)monitoredDirectory;
++ (void)setMonitoredDirectory:(NSURL *)path;
+
+extern NSString *const kNRRules;
+extern NSString *const kNRDirectoryMonitored;
+
 @end

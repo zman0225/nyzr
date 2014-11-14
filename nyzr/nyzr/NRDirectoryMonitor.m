@@ -33,7 +33,7 @@
         // The synchronized instruction will make sure,
         // that only one thread will access this point at a time.
         if (_default == nil) {
-            _default = [[NRDirectoryMonitor alloc] initWithDirectory:[NRConstants defaultDirectory]];
+            _default = [[NRDirectoryMonitor alloc] initWithDirectory:[NRConstants monitoredDirectory]];
         }
     }
     return _default;
