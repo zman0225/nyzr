@@ -39,15 +39,14 @@
         }
 //        NSLog(@"inode %@", fileID);
         
-//        if ([inodes_processed containsObject:fileID]) {
-            NSLog(@"Already did this one");
+        if ([inodes_processed containsObject:fileID]) {
+//            NSLog(@"Already did this one");
             return false;
         } else {
-//            [inodes_processed addObject:fileID];
-            NSLog(@"Adding to array");
+            [inodes_processed addObject:fileID];
+//            NSLog(@"Adding to array");
         }
-        
-        
+    
         [[NSFileManager defaultManager] moveItemAtPath:[path stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:dest error:&error];
         if (error) {
             NSLog(@"moving file %@ to %@ error: %@", file.name, dest, error);
@@ -84,22 +83,7 @@
     //        //        NSLog(@"No rules matched");
     //
     
-        if (!best) {
-            NSUserNotification *notification = [[NSUserNotification alloc] init];
-            notification.title = @"New File Downloaded";
-            if ([file domain]) {
-                notification.informativeText = [NSString stringWithFormat:@"%@ from %@", [file name], [file domain]];
-            }
-            else {
-                notification.informativeText = [NSString stringWithFormat:@"%@", [file name]];
-            }
-            notification.soundName = NSUserNotificationDefaultSoundName;
-            notification.hasActionButton = YES;
-            notification.actionButtonTitle = @"Move";
-            notification.identifier = [NSString stringWithFormat:@"0_|_%@_|_%@", [file name], [[NSUUID UUID] UUIDString]];
-            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-        }
-        else {
+        if (best) {
             NSUserNotification *notification = [[NSUserNotification alloc] init];
             notification.title = @"Downloaded File Moved";
             if ([file domain]) {
@@ -114,6 +98,21 @@
             notification.identifier = [NSString stringWithFormat:@"1_|_%@_|_%@_|_%@", [file name], [best folderURL], [[NSUUID UUID] UUIDString]];
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
         }
+    }
+    if (!best) {
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = @"New File Downloaded";
+        if ([file domain]) {
+            notification.informativeText = [NSString stringWithFormat:@"%@ from %@", [file name], [file domain]];
+        }
+        else {
+            notification.informativeText = [NSString stringWithFormat:@"%@", [file name]];
+        }
+        notification.soundName = NSUserNotificationDefaultSoundName;
+        notification.hasActionButton = YES;
+        notification.actionButtonTitle = @"Move";
+        notification.identifier = [NSString stringWithFormat:@"0_|_%@_|_%@", [file name], [[NSUUID UUID] UUIDString]];
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
     }
     //
     //        return nil;

@@ -9,6 +9,7 @@
 #import "NRAppDelegate.h"
 #import "NRDirectoryMonitor.h"
 #import <TMCache.h>
+#import "MoveViewController.h"
 
 @implementation NRAppDelegate
 
@@ -59,6 +60,9 @@ void *kContextActivePanel = &kContextActivePanel;
     // If file wasn't moved
     if ([info[0] isEqualToString:@"0"]) {
         NSLog(@"Opening interface to move file %@", info[1]);
+        MoveViewController *wc = [[MoveViewController alloc] init];
+        [[wc window] makeKeyAndOrderFront:wc];
+        
     } else {
         NSString *source = [NSString stringWithFormat:@"%@/%@", info[2], info[1]];
         NSString *dest = [[NSString stringWithFormat:@"~/Downloads/%@", info[1]] stringByExpandingTildeInPath];

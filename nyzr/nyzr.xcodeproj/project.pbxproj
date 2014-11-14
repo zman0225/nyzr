@@ -12,6 +12,8 @@
 		FA48B52A1A15C02C008664E2 /* Rule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA48B5241A15C02C008664E2 /* Rule.m */; };
 		FA48B52B1A15C02C008664E2 /* RuleMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FA48B5261A15C02C008664E2 /* RuleMatcher.m */; };
 		FA48B52C1A15C02C008664E2 /* TLDMatcherRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA48B5281A15C02C008664E2 /* TLDMatcherRule.m */; };
+		FA86775A1A167BE000AED68B /* MoveAndMaybeAddRule.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8677591A167BE000AED68B /* MoveAndMaybeAddRule.xib */; };
+		FA86775D1A167D0A00AED68B /* MoveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA86775C1A167D0A00AED68B /* MoveViewController.m */; };
 		FE333FF41A158FDD00C5828A /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FE61A158FDD00C5828A /* BackgroundView.m */; };
 		FE333FF51A158FDD00C5828A /* MenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FE81A158FDD00C5828A /* MenubarController.m */; };
 		FE333FF61A158FDD00C5828A /* Panel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE333FEA1A158FDD00C5828A /* Panel.m */; };
@@ -81,6 +83,9 @@
 		FA48B5261A15C02C008664E2 /* RuleMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuleMatcher.m; sourceTree = "<group>"; };
 		FA48B5271A15C02C008664E2 /* TLDMatcherRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLDMatcherRule.h; sourceTree = "<group>"; };
 		FA48B5281A15C02C008664E2 /* TLDMatcherRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLDMatcherRule.m; sourceTree = "<group>"; };
+		FA8677591A167BE000AED68B /* MoveAndMaybeAddRule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoveAndMaybeAddRule.xib; sourceTree = "<group>"; };
+		FA86775B1A167D0A00AED68B /* MoveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveViewController.h; sourceTree = "<group>"; };
+		FA86775C1A167D0A00AED68B /* MoveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveViewController.m; sourceTree = "<group>"; };
 		FE333FE51A158FDD00C5828A /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		FE333FE61A158FDD00C5828A /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		FE333FE71A158FDD00C5828A /* MenubarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenubarController.h; sourceTree = "<group>"; };
@@ -213,6 +218,8 @@
 				FE333FED1A158FDD00C5828A /* PanelController.m */,
 				FE3340041A1593B300C5828A /* NRDirectoryMonitor.h */,
 				FE3340051A1593B300C5828A /* NRDirectoryMonitor.m */,
+				FA86775B1A167D0A00AED68B /* MoveViewController.h */,
+				FA86775C1A167D0A00AED68B /* MoveViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 			children = (
 				FEADE7321A158F6500CCB005 /* MainMenu.xib */,
 				FE333FEB1A158FDD00C5828A /* Panel.xib */,
+				FA8677591A167BE000AED68B /* MoveAndMaybeAddRule.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA86775A1A167BE000AED68B /* MoveAndMaybeAddRule.xib in Resources */,
 				FEADE7281A158F6400CCB005 /* InfoPlist.strings in Resources */,
 				FE333FF71A158FDD00C5828A /* Panel.xib in Resources */,
 				FEADE7361A158F6500CCB005 /* Images.xcassets in Resources */,
@@ -481,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE333FF61A158FDD00C5828A /* Panel.m in Sources */,
+				FA86775D1A167D0A00AED68B /* MoveViewController.m in Sources */,
 				FE333FF51A158FDD00C5828A /* MenubarController.m in Sources */,
 				FA48B52B1A15C02C008664E2 /* RuleMatcher.m in Sources */,
 				FEE034F01A16177900F1BC54 /* NRRule.m in Sources */,

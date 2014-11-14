@@ -82,6 +82,7 @@
 - (NSString *)extension {
     NSURL *url = [NSURL URLWithString:_path];
     NSLog(@"full path %@", _path);
+    NSLog(@"extension %@", [url pathExtension]);
     
     return [url pathExtension];
 }
