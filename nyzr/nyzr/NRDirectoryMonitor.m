@@ -68,11 +68,15 @@
 	NSError *error = nil;
 	NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dir error:&error];
 	for (NSString *filename in contents) {
-		NSString *currentPath = [dir stringByAppendingString:filename];
+		NSString *currentPath = [[[NSURL URLWithString:dir] URLByAppendingPathComponent:filename] path];
         
-		NSLog(@"file %@", currentPath);
-		NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:dir error:&error];
-		NRFile *file = [[NRFile alloc] initWithName:filename withType:fileInfo.fileType withPath:currentPath withCreationDate:fileInfo.fileCreationDate andWithModificationDate:fileInfo.fileModificationDate];
+		BOOL isValid = NO;
+        
+		isValid = [filename characterAtIndex:0] != '.' && [filename characterAtIndex:0] != '$' && [[NSFileManager defaultManager] fileExistsAtPath:currentPath isDirectory:&isValid] && !isValid;
+		if (isValid) {
+			NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:dir error:&error];
+			NRFile *file = [[NRFile alloc] initWithName:filename withType:fileInfo.fileType withPath:currentPath withCreationDate:fileInfo.fileCreationDate andWithModificationDate:fileInfo.fileModificationDate];
+		}
 	}
 }
 
