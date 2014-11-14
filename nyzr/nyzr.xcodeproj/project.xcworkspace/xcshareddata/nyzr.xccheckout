@@ -10,29 +10,29 @@
 	<string>nyzr</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>4C635437-1CE5-4735-9D0C-C7FD2E2CE6D6</key>
+		<key>E274EEB30CEFB76982A71B21751856A50B0F9241</key>
 		<string>https://github.com/ziyuanliu/nyzr.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>nyzr/nyzr.xcodeproj/project.xcworkspace</string>
+	<string>nyzr/nyzr.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>4C635437-1CE5-4735-9D0C-C7FD2E2CE6D6</key>
+		<key>E274EEB30CEFB76982A71B21751856A50B0F9241</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ziyuanliu/nyzr.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>4C635437-1CE5-4735-9D0C-C7FD2E2CE6D6</string>
+	<string>E274EEB30CEFB76982A71B21751856A50B0F9241</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>4C635437-1CE5-4735-9D0C-C7FD2E2CE6D6</string>
+			<string>E274EEB30CEFB76982A71B21751856A50B0F9241</string>
 			<key>IDESourceControlWCCName</key>
 			<string>nyzr</string>
 		</dict>
