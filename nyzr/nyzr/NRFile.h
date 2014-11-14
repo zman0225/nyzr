@@ -13,10 +13,9 @@
 @property (strong) NSString *type;
 @property (strong) NSDate *creationDate;
 @property (strong) NSDate *modificationDate;
-@property (strong) NSString *hash;
 @property (strong) NSString *path;
 
-- (id)initWithName:(NSString *)name withType:(NSString *)type withPath:(NSURL *)path withCreationDate:(NSDate *)creationDate andWithModificationDate:(NSDate *)modDate;
+- (id)initWithName:(NSString *)name withType:(NSString *)type withPath:(NSString *)path withCreationDate:(NSDate *)creationDate andWithModificationDate:(NSDate *)modDate;
 - (NSString *)domain;
 - (NSString *)extension;
 - (NSDictionary *)metaData;

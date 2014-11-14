@@ -9,35 +9,38 @@
 #import "NRFile.h"
 #import "FileHash.h"
 
+@interface NRFile () {
+    NSString *_hash;
+}
+
+@end
 
 @implementation NRFile
 
 - (id)initWithName:(NSString *)name withType:(NSString *)type withPath:(NSString *)path withCreationDate:(NSDate *)creationDate andWithModificationDate:(NSDate *)modDate {
-	if (self = [super init]) {
-		self.name = name;
-		self.type = type;
-		self.path = path;
-		self.creationDate = creationDate;
-		self.modificationDate = modDate;
-	}
+    if (self = [super init]) {
+        self.name = name;
+        self.type = type;
+        self.path = path;
+        self.creationDate = creationDate;
+        self.modificationDate = modDate;
+    }
     
-	_hash = [FileHash md5HashOfFileAtPath:self.path];
-    NSLog(@"hash is %@",_hash);
-	return self;
+    _hash = [FileHash md5HashOfFileAtPath:self.path];
+    return self;
 }
 
-- (NSString *)hash {
-	return _hash;
+- (NSUInteger)hash {
+    return [_hash hash];
 }
 
-- (NSString *)domain
-{
+- (NSString *)domain {
     NSString *domainKey = @"kMDItemWhereFroms";
     
     // Make sure the file exists
     NSFileManager *manager = [NSFileManager defaultManager];
     
-    if (![manager fileExistsAtPath: _path])
+    if (![manager fileExistsAtPath:_path])
         return nil;
     
     // Get the metadata and make sure it contains the "where from" key
@@ -72,12 +75,11 @@
     return domain;
 }
 
-- (NSString *)extension
-{
+- (NSString *)extension {
     // Make sure the file exists
     NSFileManager *manager = [NSFileManager defaultManager];
     
-    if (![manager fileExistsAtPath: _path])
+    if (![manager fileExistsAtPath:_path])
         return nil;
     
     NSURL *url = [NSURL URLWithString:_path];
@@ -87,8 +89,7 @@
     return extension;
 }
 
-- (NSDictionary *)metaData
-{
+- (NSDictionary *)metaData {
     // Get a metadata item reference
     MDItemRef itemRef = MDItemCreate(kCFAllocatorDefault, (CFStringRef)_path);
     if (itemRef == nil)

@@ -25,6 +25,7 @@
 		FE33401E1A15AA7900C5828A /* CDEvents.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE33401B1A15AA0600C5828A /* CDEvents.framework */; };
 		FE3340211A15AFE400C5828A /* NRFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3340201A15AFE400C5828A /* NRFile.m */; };
 		FE3340271A15B86500C5828A /* FileHash.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3340261A15B86500C5828A /* FileHash.m */; };
+		FE433E921A15DBC30003476A /* NRDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = FE433E911A15DBC30003476A /* NRDirectory.m */; };
 		FEADE71E1A158F6400CCB005 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEADE71D1A158F6400CCB005 /* Cocoa.framework */; };
 		FEADE7281A158F6400CCB005 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEADE7261A158F6400CCB005 /* InfoPlist.strings */; };
 		FEADE72A1A158F6400CCB005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEADE7291A158F6400CCB005 /* main.m */; };
@@ -36,6 +37,7 @@
 		FEADE73E1A158F6500CCB005 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEADE71D1A158F6400CCB005 /* Cocoa.framework */; };
 		FEADE7461A158F6500CCB005 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEADE7441A158F6500CCB005 /* InfoPlist.strings */; };
 		FEADE7481A158F6500CCB005 /* nyzrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEADE7471A158F6500CCB005 /* nyzrTests.m */; };
+		FEB517F91A15DD9C00E5120E /* NRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB517F81A15DD9C00E5120E /* NRConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		FE3340201A15AFE400C5828A /* NRFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRFile.m; sourceTree = "<group>"; };
 		FE3340251A15B86500C5828A /* FileHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHash.h; sourceTree = "<group>"; };
 		FE3340261A15B86500C5828A /* FileHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHash.m; sourceTree = "<group>"; };
+		FE433E901A15DBC30003476A /* NRDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRDirectory.h; sourceTree = "<group>"; };
+		FE433E911A15DBC30003476A /* NRDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRDirectory.m; sourceTree = "<group>"; };
 		FEADE71A1A158F6400CCB005 /* nyzr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nyzr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEADE71D1A158F6400CCB005 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		FEADE7201A158F6400CCB005 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -112,6 +116,8 @@
 		FEADE7431A158F6500CCB005 /* nyzrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "nyzrTests-Info.plist"; sourceTree = "<group>"; };
 		FEADE7451A158F6500CCB005 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FEADE7471A158F6500CCB005 /* nyzrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = nyzrTests.m; sourceTree = "<group>"; };
+		FEB517F71A15DD9C00E5120E /* NRConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRConstants.h; sourceTree = "<group>"; };
+		FEB517F81A15DD9C00E5120E /* NRConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,8 +276,12 @@
 				FEADE7241A158F6400CCB005 /* Supporting Files */,
 				FE33401F1A15AFE400C5828A /* NRFile.h */,
 				FE3340201A15AFE400C5828A /* NRFile.m */,
+				FE433E901A15DBC30003476A /* NRDirectory.h */,
+				FE433E911A15DBC30003476A /* NRDirectory.m */,
 				FE3340251A15B86500C5828A /* FileHash.h */,
 				FE3340261A15B86500C5828A /* FileHash.m */,
+				FEB517F71A15DD9C00E5120E /* NRConstants.h */,
+				FEB517F81A15DD9C00E5120E /* NRConstants.m */,
 			);
 			path = nyzr;
 			sourceTree = "<group>";
@@ -448,10 +458,12 @@
 				FA48B52B1A15C02C008664E2 /* RuleMatcher.m in Sources */,
 				FE333FF81A158FDD00C5828A /* PanelController.m in Sources */,
 				FE3340211A15AFE400C5828A /* NRFile.m in Sources */,
+				FEB517F91A15DD9C00E5120E /* NRConstants.m in Sources */,
 				FA48B5291A15C02C008664E2 /* ExtensionMatcherRule.m in Sources */,
 				FA48B52A1A15C02C008664E2 /* Rule.m in Sources */,
 				FE333FFD1A158FDD00C5828A /* StatusItemView.m in Sources */,
 				FE3340271A15B86500C5828A /* FileHash.m in Sources */,
+				FE433E921A15DBC30003476A /* NRDirectory.m in Sources */,
 				FE3340061A1593B300C5828A /* NRDirectoryMonitor.m in Sources */,
 				FEADE7311A158F6400CCB005 /* NRAppDelegate.m in Sources */,
 				FA48B52C1A15C02C008664E2 /* TLDMatcherRule.m in Sources */,
