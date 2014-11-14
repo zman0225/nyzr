@@ -9,5 +9,5 @@
 @property (strong) IBOutlet NSTableView *rulesTableView;
 @property (strong) IBOutlet NSTabView *tabView;
 
-
++ (NSArray *)directoryPicker;
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[NRRule matchesRule:]:NRRule.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[temp host]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NRFile domain]:NRFile.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[NSFileManager defaultManager] fileExistsAtPath:_path]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[NRFileMover moveNewFile:]:NRFileMover.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "rules">
+            </PersistentString>
+            <PersistentString
+               value = "file.domain">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[BackgroundView awakeFromNib]:BackgroundView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[NSImage imageNamed : @&quot;first.png&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

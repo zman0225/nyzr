@@ -10,6 +10,7 @@
 #import "NRDirectoryMonitor.h"
 #import <TMCache.h>
 #import "MoveViewController.h"
+#import "Panel.h"
 
 @implementation NRAppDelegate
 
@@ -58,17 +59,33 @@ void *kContextActivePanel = &kContextActivePanel;
     NSLog(@"Notification activated, identifier is %@", [notification identifier]);
     NSArray *info = [[notification identifier] componentsSeparatedByString: @"_|_"];
     // If file wasn't moved
+    NSError *error;
+
     if ([info[0] isEqualToString:@"0"]) {
         NSLog(@"Opening interface to move file %@", info[1]);
-        MoveViewController *wc = [[MoveViewController alloc] init];
-        [[wc window] makeKeyAndOrderFront:wc];
+        NSArray *urls = [Panel directoryPicker];
+        if (urls&&urls.count>0) {
+            NSString *source = [[NSString stringWithFormat:@"~/Downloads/%@", info[1]] stringByExpandingTildeInPath];
+
+            NSURL *url = urls[0];
+            url = [url URLByAppendingPathComponent:info[1]];
+            [[NSFileManager defaultManager] moveItemAtPath:[source stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:[[url path] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] error:&error];
+            NSLog(@"Moving %@ to %@", source, [[url path] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
+
+        }
+//        MoveViewController *wc = [[MoveViewController alloc] init];
+//        [[wc window] makeKeyAndOrderFront:wc];
         
     } else {
         NSString *source = [NSString stringWithFormat:@"%@/%@", info[2], info[1]];
+
         NSString *dest = [[NSString stringWithFormat:@"~/Downloads/%@", info[1]] stringByExpandingTildeInPath];
         NSLog(@"Undoing move of %@ to %@", info[1], info[2]);
         NSLog(@"Moving %@ to %@", source, dest);
-        [[NSFileManager defaultManager] moveItemAtPath:[source stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:dest error:nil];
+        [[NSFileManager defaultManager] moveItemAtPath:[source stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:dest error:&error];
+    }
+    if (error) {
+        NSLog(@"ERROR: %@",error);
     }
     [center removeDeliveredNotification: notification];
 }

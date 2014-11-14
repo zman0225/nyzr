@@ -85,7 +85,7 @@
     [self.rulesTableView reloadData];
 }
 
-- (NSArray *)directoryPicker {
++ (NSArray *)directoryPicker {
     NSOpenPanel *openDlg = [NSOpenPanel openPanel];
     //    [openDlg setLevel:CGShieldingWindowLevel()];
     //        [self addChildWindow:openDlg ordered:NSWindowAbove];
@@ -106,7 +106,7 @@
 }
 
 - (IBAction)changeDirectoryButtonPressed:(NSButton *)sender {
-    NSArray *files = [self directoryPicker];
+    NSArray *files = [Panel directoryPicker];
     if (files) {
         [NRConstants setMonitoredDirectory:files[0]];
         [self.monitoredTextLabel setStringValue:[NRConstants monitoredDirectory]];
@@ -114,7 +114,7 @@
 }
 
 - (IBAction)changeRootDirectoryButtonPressed:(id)sender {
-    NSArray *files = [self directoryPicker];
+    NSArray *files = [Panel directoryPicker];
     if (files) {
         [NRConstants setRootDirectory:files[0]];
         [self.rootTextLabel setStringValue:[NRConstants rootDirectory]];
