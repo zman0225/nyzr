@@ -57,13 +57,13 @@ void *kContextActivePanel = &kContextActivePanel;
     return NSTerminateNow;
 }
 
-- (void)learningConfirmation:(NSString *)filename domain:(NSString *)domain andExtension:(NSString *)extension {
+- (void)learningConfirmation:(NRFile*)file {
     NSAlert *alert = [[NSAlert alloc] init];
     [alert addButtonWithTitle:@"Extension"];
     [alert addButtonWithTitle:@"Domain"];
     [alert addButtonWithTitle:@"Cancel"];
     [alert setMessageText:@"Make a new filter?"];
-    NSString *info = [NSString stringWithFormat:@"Would you like to automatically make a filter for %@?\nDomain:%@\nExtension:%@", filename, domain, extension];
+    NSString *info = [NSString stringWithFormat:@"Would you like to automatically make a filter for %@?\nDomain:%@\nExtension:%@", file.name, [file domain], file.extension];
     [alert setInformativeText:info];
     [alert setAlertStyle:NSWarningAlertStyle];
     NSModalResponse result = [alert runModal];
@@ -72,19 +72,21 @@ void *kContextActivePanel = &kContextActivePanel;
     NSMutableArray *dict = [[NRConstants allRules] mutableCopy];
     NRRule *rule;
     
-    
+    NSString *dir =[file.path stringByDeletingLastPathComponent];
+    NSLog(@"edited %@", dir);
+
     if (result == 1000) {
-        NSLog(@"New rule by ext: %@", extension);
-        rule = [[NRRule alloc] initWithFilter:extension folderName:filename];
+        NSLog(@"New rule by ext: %@", file.extension);
+        rule = [[NRRule alloc] initWithFilter:file.extension folderName:dir];
         [dict addObject:rule];
         
         [[TMCache sharedCache] setObject:[[NSSet setWithArray:dict] allObjects] forKey:kNRRules];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"rulesEdited" object:nil];
     }
     else if (result == 1001) {
-        NSLog(@"New rule by domain: %@", domain);
+        NSLog(@"New rule by domain: %@", [file domain]);
         
-        rule = [[NRRule alloc] initWithFilter:domain folderName:[filename stringByDeletingLastPathComponent]];
+        rule = [[NRRule alloc] initWithFilter:[file domain] folderName:dir];
         [dict addObject:rule];
         
         [[TMCache sharedCache] setObject:[[NSSet setWithArray:dict] allObjects] forKey:kNRRules];
@@ -109,7 +111,7 @@ void *kContextActivePanel = &kContextActivePanel;
             [[NSFileManager defaultManager] moveItemAtPath:[source stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:[[url path] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] error:&error];
             NSLog(@"Moving %@ to %@", source, [[url path] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
             NRFile *file = [NRFile fileWithFilePath:[url path]];
-            [self learningConfirmation:file.name domain:[file domain] andExtension:file.extension];
+            [self learningConfirmation:file];
         }
         //        MoveViewController *wc = [[MoveViewController alloc] init];
         //        [[wc window] makeKeyAndOrderFront:wc];

@@ -23,7 +23,14 @@
             self.rulePriority = 0;
             self.ruleType = NRFileExtension;
         }
-        self.folderURL = [[NRConstants rootDirectoryURL] URLByAppendingPathComponent:folderName];
+        
+        NSURL *url = [NSURL fileURLWithPath:folderName];
+        if ([url isFileURL]) {
+            self.folderURL = [NSURL URLWithString:folderName];
+        }
+        else {
+            self.folderURL = [[NRConstants rootDirectoryURL] URLByAppendingPathComponent:folderName];
+        }
     }
     NSLog(@"initialized filter:%@-%@-%lu-%lu", self.filter, self.folderURL, self.rulePriority, self.ruleType);
     return self;
