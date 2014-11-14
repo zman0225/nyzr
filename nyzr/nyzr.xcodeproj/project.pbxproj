@@ -40,6 +40,10 @@
 		FEB517F91A15DD9C00E5120E /* NRConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB517F81A15DD9C00E5120E /* NRConstants.m */; };
 		FEE034ED1A160C3200F1BC54 /* NRFileMover.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE034EC1A160C3200F1BC54 /* NRFileMover.m */; };
 		FEE034F01A16177900F1BC54 /* NRRule.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE034EF1A16177900F1BC54 /* NRRule.m */; };
+		FEE034F41A1657D300F1BC54 /* delete84.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE034F31A1657D300F1BC54 /* delete84.png */; };
+		FEE034F61A1658CF00F1BC54 /* file97.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE034F51A1658CF00F1BC54 /* file97.png */; };
+		FEE034F81A1659A500F1BC54 /* round73.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE034F71A1659A500F1BC54 /* round73.png */; };
+		FEE034FA1A1659EA00F1BC54 /* add45.png in Resources */ = {isa = PBXBuildFile; fileRef = FEE034F91A1659EA00F1BC54 /* add45.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +128,10 @@
 		FEE034EC1A160C3200F1BC54 /* NRFileMover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRFileMover.m; sourceTree = "<group>"; };
 		FEE034EE1A16177900F1BC54 /* NRRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRRule.h; sourceTree = "<group>"; };
 		FEE034EF1A16177900F1BC54 /* NRRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRRule.m; sourceTree = "<group>"; };
+		FEE034F31A1657D300F1BC54 /* delete84.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete84.png; sourceTree = "<group>"; };
+		FEE034F51A1658CF00F1BC54 /* file97.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = file97.png; sourceTree = "<group>"; };
+		FEE034F71A1659A500F1BC54 /* round73.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round73.png; sourceTree = "<group>"; };
+		FEE034F91A1659EA00F1BC54 /* add45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add45.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,12 +190,16 @@
 			name = RuleMatcher;
 			sourceTree = "<group>";
 		};
-		FE3340001A15932800C5828A /* Graphics */ = {
+		FE3340001A15932800C5828A /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				FEE034F91A1659EA00F1BC54 /* add45.png */,
+				FEE034F71A1659A500F1BC54 /* round73.png */,
+				FEE034F51A1658CF00F1BC54 /* file97.png */,
+				FEE034F31A1657D300F1BC54 /* delete84.png */,
 				FE333FFE1A15912F00C5828A /* paper18.png */,
 			);
-			name = Graphics;
+			name = Asset;
 			sourceTree = "<group>";
 		};
 		FE3340011A15933500C5828A /* controller */ = {
@@ -274,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				FA48B52D1A15C030008664E2 /* RuleMatcher */,
-				FE3340001A15932800C5828A /* Graphics */,
+				FE3340001A15932800C5828A /* Asset */,
 				FE3340011A15933500C5828A /* controller */,
 				FE3340031A15934900C5828A /* xib */,
 				FEADE7351A158F6500CCB005 /* Images.xcassets */,
@@ -410,8 +422,12 @@
 				FEADE7281A158F6400CCB005 /* InfoPlist.strings in Resources */,
 				FE333FF71A158FDD00C5828A /* Panel.xib in Resources */,
 				FEADE7361A158F6500CCB005 /* Images.xcassets in Resources */,
+				FEE034F61A1658CF00F1BC54 /* file97.png in Resources */,
 				FE333FFF1A15912F00C5828A /* paper18.png in Resources */,
+				FEE034FA1A1659EA00F1BC54 /* add45.png in Resources */,
+				FEE034F81A1659A500F1BC54 /* round73.png in Resources */,
 				FEADE72E1A158F6400CCB005 /* Credits.rtf in Resources */,
+				FEE034F41A1657D300F1BC54 /* delete84.png in Resources */,
 				FEADE7341A158F6500CCB005 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +638,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nyzr/nyzr-Prefix.pch";
 				INFOPLIST_FILE = "nyzr/nyzr-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;
@@ -641,6 +658,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nyzr/nyzr-Prefix.pch";
 				INFOPLIST_FILE = "nyzr/nyzr-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.9;
 				WRAPPER_EXTENSION = app;

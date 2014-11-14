@@ -34,13 +34,13 @@
         return YES;
     }
     
-    NSURL *domain = [NSURL URLWithString:[file domain]];
-    NSURL *temp = [NSURL URLWithString:self.filter];
-    NSLog(@"%@ vs %@ - %@", domain, [temp host], self.filter);
-    if ([[domain path] isEqualToString:[temp host]]) {
-        NSLog(@"asd");
+    NSString *domain = [file domain];
+    
+    NSLog(@"%@ vs %@", domain, self.filter);
+    if ([domain isEqualToString:self.filter]) {
+        NSLog(@"asdfghjkl");
     }
-    if (domain && self.ruleType == NRTLD && [[domain path] isEqualToString:[temp host]]) {
+    if (domain && self.ruleType == NRTLD && [domain isEqualToString:self.filter]) {
         return YES;
     }
     

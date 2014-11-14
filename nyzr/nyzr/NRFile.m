@@ -21,7 +21,7 @@
     if (self = [super init]) {
         self.name = name;
         self.type = type;
-        self.path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        self.path = path;
         self.creationDate = creationDate;
         self.modificationDate = modDate;
     }
@@ -38,14 +38,15 @@
     NSString *domainKey = @"kMDItemWhereFroms";
     
     // Make sure the file exists
-    NSFileManager *manager = [NSFileManager defaultManager];
+    //    NSFileManager *manager = [NSFileManager defaultManager];
     
-    if (![manager fileExistsAtPath:_path])
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_path]) {
         return nil;
+    }
     
     // Get the metadata and make sure it contains the "where from" key
     NSDictionary *metaData = [self metaData];
-    
     if (![metaData objectForKey:domainKey])
         return nil;
     
@@ -70,10 +71,10 @@
     NSString *prefix = [host substringToIndex:4];
     NSString *domain;
     
-    if ([prefix isEqualToString:@"www."])
-        domain = [host substringFromIndex:4];
-    else
-        domain = host;
+    //    if ([prefix isEqualToString:@"www."])
+    //        domain = [host substringFromIndex:4];
+    //    else
+    domain = host;
     
     return domain;
 }

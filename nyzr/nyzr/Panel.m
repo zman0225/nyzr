@@ -26,7 +26,9 @@
     NSMutableArray *dict = [[NRConstants allRules] mutableCopy];
     NRRule *rule = [[NRRule alloc] initWithFilter:extension folderName:dir];
     [dict addObject:rule];
+    
     [[TMCache sharedCache] setObject:[[NSSet setWithArray:dict] allObjects] forKey:kNRRules];
+    
     [self.folderTextField setStringValue:@""];
     [self.extensionTextField setStringValue:@""];
 }
