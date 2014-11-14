@@ -15,9 +15,7 @@
         _statusItemView = [[StatusItemView alloc] initWithStatusItem:statusItem];
         _statusItemView.image = [NSImage imageNamed:@"paper18"];
         _statusItemView.alternateImage = [NSImage imageNamed:@"paper18"];
-        _statusItemView.action = @selector(togglePanel:);
-        
-        //        _rm = [[RuleMatcher alloc] init];
+        _statusItemView.action = @selector(togglePanel:);        
     }
     return self;
 }
