@@ -28,6 +28,12 @@
     return self;
 }
 
+- (BOOL)isFileValid:(NSString *)filename path:(NSString *)currentPath {
+    BOOL isValid = NO;
+    NSURL *fileUrl = [NSURL URLWithString:filename];
+    return [filename characterAtIndex:0] != '.' && [filename characterAtIndex:0] != '$' && [[NSFileManager defaultManager] fileExistsAtPath:currentPath isDirectory:&isValid] && !isValid && [[[fileUrl pathExtension] lowercaseString] isNotEqualTo:@"tmp"] && [[[fileUrl pathExtension] lowercaseString] isNotEqualTo:@"crdownload"] && [[[fileUrl pathExtension] lowercaseString] isNotEqualTo:@"download"];
+}
+
 - (NSSet *)validFileNames:(NSString *)dir {
     NSError *error = nil;
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dir error:&error];
@@ -35,9 +41,7 @@
     for (NSString *filename in contents) {
         NSString *currentPath = [[[NSURL URLWithString:dir] URLByAppendingPathComponent:filename] path];
         
-        BOOL isValid = NO;
-        
-        isValid = [filename characterAtIndex:0] != '.' && [filename characterAtIndex:0] != '$' && [[NSFileManager defaultManager] fileExistsAtPath:currentPath isDirectory:&isValid] && !isValid;
+        BOOL isValid = [self isFileValid:filename path:currentPath];
         if (isValid) {
             [tempSet addObject:currentPath];
         }
@@ -54,11 +58,10 @@
 - (NSSet *)getNewFileList:(NSSet *)fileNames {
     NSError *error;
     NSMutableSet *tempSet = [NSMutableSet new];
+    
     for (NSString *filename in fileNames) {
-//        NSString *currentPath = [[[NSURL URLWithString:self.directory] URLByAppendingPathComponent:filename] path];
         NSDictionary *fileInfo = [[NSFileManager defaultManager] attributesOfItemAtPath:self.directory error:&error];
         NRFile *file = [[NRFile alloc] initWithName:filename withType:fileInfo.fileType withPath:filename withCreationDate:fileInfo.fileCreationDate andWithModificationDate:fileInfo.fileModificationDate];
-//        NSLog(@"asdsa %@",filename);
         [tempSet addObject:file];
     }
     return [tempSet copy];

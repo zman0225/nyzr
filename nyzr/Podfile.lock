@@ -1,10 +1,13 @@
 PODS:
+  - Bolts (1.1.3)
   - TMCache (1.2.2)
 
 DEPENDENCIES:
+  - Bolts
   - TMCache
 
 SPEC CHECKSUMS:
+  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
   TMCache: e2c9225de7a107b529d1d04baa58eb5eab3051f3
 
 COCOAPODS: 0.34.1

@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/TMCache"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/TMCache"
-OTHER_LDFLAGS = -ObjC -l"Pods-TMCache" -framework "Foundation" -weak_framework "AppKit"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bolts" "${PODS_ROOT}/Headers/Public/TMCache"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Bolts" -isystem "${PODS_ROOT}/Headers/Public/TMCache"
+OTHER_LDFLAGS = -ObjC -l"Pods-Bolts" -l"Pods-TMCache" -framework "Foundation" -weak_framework "AppKit"
 PODS_ROOT = ${SRCROOT}/Pods

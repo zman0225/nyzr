@@ -65,8 +65,7 @@
                            if (directory) {
                                [directory directoryChanged];
                            }
-                
-                       }];
+                       }                                  onRunLoop:[NSRunLoop currentRunLoop] sinceEventIdentifier:kCDEventsSinceEventNow notificationLantency:(NSTimeInterval)0.3 ignoreEventsFromSubDirs:CD_EVENTS_DEFAULT_IGNORE_EVENT_FROM_SUB_DIRS excludeURLs:nil streamCreationFlags:kCDEventsDefaultEventStreamFlags];
     }
 }
 
