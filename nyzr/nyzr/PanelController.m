@@ -8,7 +8,7 @@
 
 #define SEARCH_INSET 17
 
-#define POPUP_HEIGHT 360
+#define POPUP_HEIGHT 390
 #define PANEL_WIDTH 340
 #define MENU_ANIMATION_DURATION .1
 

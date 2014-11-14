@@ -15,10 +15,9 @@
 @synthesize arrowX = _arrowX;
 
 #pragma mark -
-//-(void)awakeFromNib
-//{
-//    self.layer.contents = (id)[NSImage imageNamed:imageName];
-//}
+- (void)awakeFromNib {
+    self.layer.contents = (id)[NSImage imageNamed : @"nyzr-bg-only"];
+}
 
 - (void)drawRect:(NSRect)dirtyRect {
     NSRect contentRect = NSInsetRect([self bounds], LINE_THICKNESS, LINE_THICKNESS);
@@ -64,6 +63,7 @@
     [path setLineWidth:LINE_THICKNESS * 2];
     [[NSColor whiteColor] setStroke];
     [path stroke];
+    
     
     [NSGraphicsContext restoreGraphicsState];
 }

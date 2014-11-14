@@ -8,6 +8,7 @@
 @property (strong) IBOutlet NSTextField *extensionTextField;
 @property (strong) IBOutlet NSTableView *rulesTableView;
 @property (strong) IBOutlet NSTabView *tabView;
+@property (strong) IBOutlet NSScrollView *scrollView;
 
 + (NSArray *)directoryPicker;
 @end

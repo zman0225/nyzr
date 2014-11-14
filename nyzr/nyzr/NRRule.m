@@ -24,8 +24,8 @@
             self.ruleType = NRFileExtension;
         }
         
-        NSURL *url = [NSURL fileURLWithPath:folderName];
-        if ([url isFileURL]) {
+        BOOL isValid = NO;
+        if ([[NSFileManager defaultManager] fileExistsAtPath:folderName isDirectory:&isValid]) {
             self.folderURL = [NSURL URLWithString:folderName];
         }
         else {

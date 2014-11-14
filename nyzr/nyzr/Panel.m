@@ -17,6 +17,15 @@
     [self.rootTextLabel setStringValue:[NRConstants rootDirectory]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"rulesEdited" object:nil];
+    
+//    [self.rootTextLabel setBezeled:NO];
+//    [self.rootTextLabel setEditable:NO];
+//    [self.rootTextLabel setDrawsBackground:NO];
+    [self.rootTextLabel setBackgroundColor:[NSColor clearColor]];
+    
+    [self.monitoredTextLabel setBezeled:NO];
+    [self.monitoredTextLabel setEditable:NO];
+    [self.monitoredTextLabel setDrawsBackground:NO];
 }
 
 - (void)refresh {
