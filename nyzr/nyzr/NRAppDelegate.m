@@ -84,7 +84,7 @@ void *kContextActivePanel = &kContextActivePanel;
     else if (result == 1001) {
         NSLog(@"New rule by domain: %@", domain);
         
-        rule = [[NRRule alloc] initWithFilter:domain folderName:filename];
+        rule = [[NRRule alloc] initWithFilter:domain folderName:[filename stringByDeletingLastPathComponent]];
         [dict addObject:rule];
         
         [[TMCache sharedCache] setObject:[[NSSet setWithArray:dict] allObjects] forKey:kNRRules];
