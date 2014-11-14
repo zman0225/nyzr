@@ -64,18 +64,33 @@
     //    if (!destinationDirectory) {
     //        //        NSLog(@"No rules matched");
     //
-    //        NSUserNotification *notification = [[NSUserNotification alloc] init];
-    //        notification.title = @"New File Downloaded";
-    //        if ([file domain]) {
-    //            notification.informativeText = [NSString stringWithFormat:@"%@ from %@", [file name], [file domain]];
-    //        }
-    //        else {
-    //            notification.informativeText = [NSString stringWithFormat:@"%@", [file name]];
-    //        }
-    //        notification.soundName = NSUserNotificationDefaultSoundName;
-    //        notification.hasActionButton = YES;
-    //        notification.actionButtonTitle = @"Move";
-    //        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    if (!best) {
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = @"New File Downloaded";
+        if ([file domain]) {
+            notification.informativeText = [NSString stringWithFormat:@"%@ from %@", [file name], [file domain]];
+        }
+        else {
+            notification.informativeText = [NSString stringWithFormat:@"%@", [file name]];
+        }
+        notification.soundName = NSUserNotificationDefaultSoundName;
+        notification.hasActionButton = YES;
+        notification.actionButtonTitle = @"Move";
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    } else {
+        NSUserNotification *notification = [[NSUserNotification alloc] init];
+        notification.title = @"Downloaded File Moved";
+        if ([file domain]) {
+            notification.informativeText = [NSString stringWithFormat:@"%@ moved to %@", [file name], [best folderURL]];
+        }
+        else {
+            notification.informativeText = [NSString stringWithFormat:@"%@", [file name]];
+        }
+        notification.soundName = NSUserNotificationDefaultSoundName;
+        notification.hasActionButton = YES;
+        notification.actionButtonTitle = @"Undo";
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    }
     //
     //        return nil;
     //    }
