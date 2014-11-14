@@ -37,7 +37,7 @@
     // Make sure the file exists
     NSFileManager *manager = [NSFileManager defaultManager];
     
-    if (![manager fileExistsAtPath: self.path])
+    if (![manager fileExistsAtPath: _path])
         return nil;
     
     // Get the metadata and make sure it contains the "where from" key
@@ -77,10 +77,10 @@
     // Make sure the file exists
     NSFileManager *manager = [NSFileManager defaultManager];
     
-    if (![manager fileExistsAtPath: self.path])
+    if (![manager fileExistsAtPath: _path])
         return nil;
     
-    NSURL *url = [NSURL URLWithString:self.path];
+    NSURL *url = [NSURL URLWithString:_path];
     NSString *path = [url path];
     NSString *extension = [path pathExtension];
     
@@ -90,7 +90,7 @@
 - (NSDictionary *)metaData
 {
     // Get a metadata item reference
-    MDItemRef itemRef = MDItemCreate(kCFAllocatorDefault, (CFStringRef)self.path);
+    MDItemRef itemRef = MDItemCreate(kCFAllocatorDefault, (CFStringRef)_path);
     if (itemRef == nil)
         return nil;
     
