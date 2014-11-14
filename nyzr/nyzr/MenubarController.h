@@ -9,7 +9,6 @@
 @interface MenubarController : NSObject {
 @private
     StatusItemView *_statusItemView;
-    //    RuleMatcher *_rm;
 }
 
 @property (nonatomic) BOOL hasActiveIcon;
