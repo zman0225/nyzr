@@ -41,11 +41,12 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     
     if (![manager fileExistsAtPath:_path])
+    {
         return nil;
+    }
     
     // Get the metadata and make sure it contains the "where from" key
     NSDictionary *metaData = [self metaData];
-    
     if (![metaData objectForKey:domainKey])
         return nil;
     
