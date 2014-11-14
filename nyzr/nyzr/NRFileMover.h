@@ -10,7 +10,9 @@
 #import "RuleMatcher.h"
 #import "NRFile.h"
 
-@interface NRFileMover : NSObject
+@interface NRFileMover : NSObject {
+    NSMutableArray *inodes_processed;
+}
 
 
 - (void)moveNewFile:(NRFile *)file;

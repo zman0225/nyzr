@@ -60,7 +60,11 @@ void *kContextActivePanel = &kContextActivePanel;
     if ([info[0] isEqualToString:@"0"]) {
         NSLog(@"Opening interface to move file %@", info[1]);
     } else {
+        NSString *source = [NSString stringWithFormat:@"%@/%@", info[2], info[1]];
+        NSString *dest = [[NSString stringWithFormat:@"~/Downloads/%@", info[1]] stringByExpandingTildeInPath];
         NSLog(@"Undoing move of %@ to %@", info[1], info[2]);
+        NSLog(@"Moving %@ to %@", source, dest);
+        [[NSFileManager defaultManager] moveItemAtPath:[source stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] toPath:dest error:nil];
     }
     [center removeDeliveredNotification: notification];
 }

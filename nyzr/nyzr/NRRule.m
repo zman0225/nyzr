@@ -40,7 +40,7 @@
     if ([domain isEqualToString:self.filter]) {
         NSLog(@"asdfghjkl");
     }
-    if (domain && self.ruleType == NRTLD && [domain isEqualToString:self.filter]) {
+    if (domain && self.ruleType == NRTLD && [domain isEqualToString:[self.filter stringByReplacingOccurrencesOfString:@"http://" withString:@""]]) {
         return YES;
     }
     
