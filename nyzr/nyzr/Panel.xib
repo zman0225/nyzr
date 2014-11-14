@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
@@ -18,32 +18,14 @@
             <windowStyleMask key="styleMask" utility="YES" nonactivatingPanel="YES"/>
             <windowCollectionBehavior key="collectionBehavior" moveToActiveSpace="YES" ignoresCycle="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="162" y="101" width="320" height="420"/>
+            <rect key="contentRect" x="162" y="101" width="340" height="359"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="6" customClass="BackgroundView">
-                <rect key="frame" x="0.0" y="-1" width="320" height="420"/>
+                <rect key="frame" x="0.0" y="0.0" width="340" height="359"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yCR-3j-L8T">
-                        <rect key="frame" x="18" y="394" width="113" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Folder Monitored" id="EtY-iQ-wiI">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Rwm-KU-Xk7">
-                        <rect key="frame" x="18" y="369" width="148" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="right" title="folder_monitored_here" id="nVf-bb-9G2">
-                            <font key="font" metaFont="system" size="10"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Wcg-YA-nJ5">
-                        <rect key="frame" x="5" y="76" width="310" height="162"/>
+                        <rect key="frame" x="15" y="56" width="310" height="162"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="omV-O4-hbX">
                             <rect key="frame" x="1" y="17" width="238" height="117"/>
@@ -130,7 +112,7 @@
                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="b5w-Nh-HTk">
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="b5w-Nh-HTk">
                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -139,50 +121,39 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <button verticalHuggingPriority="750" id="k89-Ic-LTI">
-                        <rect key="frame" x="199" y="368" width="76" height="19"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="change dir" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="quO-NV-pGN">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="cellTitle"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="changeDirectoryButtonPressed:" target="5" id="q69-Wr-eFR"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="HeG-SA-Y7n">
-                        <rect key="frame" x="18" y="316" width="148" height="17"/>
+                        <rect key="frame" x="25" y="296" width="148" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="right" title="root_folder_here" id="O5P-bF-Qhp">
+                        <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="left" title="root_folder_here" id="O5P-bF-Qhp">
                             <font key="font" metaFont="system" size="10"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" id="RmV-Pc-vw3">
-                        <rect key="frame" x="199" y="315" width="76" height="19"/>
+                        <rect key="frame" x="96" y="320" width="76" height="19"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="roundRect" title="change dir" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uVf-5N-dlV">
+                        <buttonCell key="cell" type="roundRect" title="Change" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uVf-5N-dlV">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="titleBar" size="12"/>
+                            <font key="font" metaFont="cellTitle"/>
                         </buttonCell>
                         <connections>
                             <action selector="changeRootDirectoryButtonPressed:" target="5" id="JDu-wm-NwN"/>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" id="Ed7-1U-ELP">
-                        <rect key="frame" x="94" y="279" width="150" height="22"/>
+                        <rect key="frame" x="67" y="259" width="160" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="pdf/google.com" drawsBackground="YES" id="vdY-Lj-0Ys">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="e.g. pdf or google.com" drawsBackground="YES" id="vdY-Lj-0Ys">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button id="BvL-Cy-4lP">
-                        <rect key="frame" x="252" y="251" width="48" height="48"/>
+                        <rect key="frame" x="238" y="228" width="89" height="53"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cfJ-k5-V9e">
+                        <buttonCell key="cell" type="bevel" title="Add Rule" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cfJ-k5-V9e">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -191,7 +162,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="R5O-BM-8ei">
-                        <rect key="frame" x="18" y="282" width="40" height="17"/>
+                        <rect key="frame" x="13" y="262" width="40" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filter:" id="pEg-x7-hAw">
                             <font key="font" metaFont="system"/>
@@ -200,7 +171,7 @@
                         </textFieldCell>
                     </textField>
                     <textField verticalHuggingPriority="750" id="Ar4-JN-K5M">
-                        <rect key="frame" x="94" y="251" width="150" height="22"/>
+                        <rect key="frame" x="67" y="231" width="160" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Docs/google_folder" drawsBackground="YES" id="JYz-SX-JpZ">
                             <font key="font" metaFont="system"/>
@@ -209,7 +180,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Sb9-38-fOx">
-                        <rect key="frame" x="18" y="254" width="48" height="17"/>
+                        <rect key="frame" x="13" y="234" width="48" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Folder:" id="Gkr-k2-uxU">
                             <font key="font" metaFont="system"/>
@@ -217,10 +188,10 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button id="hcB-g4-VlA">
-                        <rect key="frame" x="136" y="20" width="48" height="48"/>
+                    <button verticalHuggingPriority="750" id="hcB-g4-VlA">
+                        <rect key="frame" x="101" y="13" width="138" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rig-dd-Fno">
+                        <buttonCell key="cell" type="push" title="Delete Selected" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rig-dd-Fno">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -229,7 +200,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yTx-vj-LP5">
-                        <rect key="frame" x="18" y="344" width="77" height="17"/>
+                        <rect key="frame" x="13" y="324" width="77" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Root Folder" id="Dml-ub-dPJ">
                             <font key="font" metaFont="system"/>
@@ -250,7 +221,39 @@
                 <outlet property="rootTextLabel" destination="HeG-SA-Y7n" id="TM3-Ug-1ON"/>
                 <outlet property="rulesTableView" destination="2SQ-aJ-WUC" id="Agt-1q-0GE"/>
             </connections>
-            <point key="canvasLocation" x="435" y="214"/>
+            <point key="canvasLocation" x="435" y="224.5"/>
         </window>
+        <button verticalHuggingPriority="750" id="k89-Ic-LTI">
+            <rect key="frame" x="0.0" y="0.0" width="76" height="19"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="roundRect" title="Change" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="quO-NV-pGN">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="cellTitle"/>
+            </buttonCell>
+            <connections>
+                <action selector="changeDirectoryButtonPressed:" target="5" id="q69-Wr-eFR"/>
+            </connections>
+            <point key="canvasLocation" x="905" y="81"/>
+        </button>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="yCR-3j-L8T">
+            <rect key="frame" x="0.0" y="0.0" width="113" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Folder Monitored" id="EtY-iQ-wiI">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="899.5" y="154.5"/>
+        </textField>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Rwm-KU-Xk7">
+            <rect key="frame" x="0.0" y="0.0" width="148" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" lineBreakMode="truncatingHead" sendsActionOnEndEditing="YES" alignment="left" title="folder_monitored_here" id="nVf-bb-9G2">
+                <font key="font" metaFont="system" size="10"/>
+                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="905" y="224.5"/>
+        </textField>
     </objects>
 </document>
