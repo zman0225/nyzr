@@ -9,7 +9,7 @@ alchemyapi = AlchemyAPI()
 
 folderList = ["Documents/Carmen", "Documents", "Documents/Music Humanities",  "Documents/Econometrics", "Documents/Computer Science Theory"]
 
-fileName = "Homework #3 CS Theory.docx"
+fileName = "econometrics.docx"
 myDoc = get_docx_text(fileName)
 response = alchemyapi.concepts("text", myDoc)
 response1 = alchemyapi.taxonomy("text", myDoc)
@@ -18,7 +18,7 @@ for concept in response['concepts']:
        for pathName in folderList:
 	  folderName = pathName.replace("*/", "").lower()
 	  conceptL = concept['text'].lower()
-          if float(concept['relevance']) > 0.4 and (conceptL in folderName
+          if concept['relevance'] > 0.35 and (conceptL in folderName
 		or folderName in conceptL):
                 print('text: ', concept['text'])
                 print("file should be in " + pathName)
@@ -30,7 +30,7 @@ for concept in response['concepts']:
 for taxonomy in response1['taxonomy']:
       category = taxonomy['label'].replace("*/", "").lower()	
       category = (category.rsplit('/', 1))[-1].lower()
-#      print(category)
+      print(category)
       for pathName in folderList:
 	   folderName = pathName.replace("*/", "").lower()
 	   if (category in folderName or folderName in category):
