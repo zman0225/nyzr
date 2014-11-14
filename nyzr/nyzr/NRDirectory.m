@@ -30,7 +30,8 @@
 
 - (BOOL)isFileValid:(NSString *)filename path:(NSString *)currentPath {
     BOOL isValid = NO;
-    NSURL *fileUrl = [NSURL URLWithString:filename];
+    NSURL *fileUrl = [NSURL URLWithString:[currentPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    //    NSLog(@"extension is %@ %@ %@" ,[[fileUrl pathExtension] lowercaseString],fileUrl,currentPath);
     return [filename characterAtIndex:0] != '.' && [filename characterAtIndex:0] != '$' && [[NSFileManager defaultManager] fileExistsAtPath:currentPath isDirectory:&isValid] && !isValid && [[[fileUrl pathExtension] lowercaseString] isNotEqualTo:@"tmp"] && [[[fileUrl pathExtension] lowercaseString] isNotEqualTo:@"crdownload"] && [[[fileUrl pathExtension] lowercaseString] isNotEqualTo:@"download"];
 }
 
@@ -84,9 +85,7 @@
         if (newFiles.count > 0) {
             NRFile *newFile = ((NRFile *)[newFiles allObjects][0]);
             NSLog(@"new files %@", newFile.name);
-            NSError *error;
-            //            NRFile *toDelete = [newFiles allObjects][0];
-            //            [[NSFileManager defaultManager] removeItemAtPath:toDelete.path error:&error];
+            //            [newFile deleteFile];
             self.currentFileList = [self getNewFileList:self.currentFileNames];
         }
     }

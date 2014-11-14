@@ -19,5 +19,5 @@
 - (NSString *)domain;
 - (NSString *)extension;
 - (NSDictionary *)metaData;
-
+- (void)deleteFile;
 @end
